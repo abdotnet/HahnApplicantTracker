@@ -11,7 +11,7 @@ namespace Hahn.ApplicatonProcess.December2020.Web.Controllers
     /// <summary>
     /// 
     /// </summary>
-    public class ValuesController : Controller
+    public class HomeController : Controller
     {
         /// <summary>
         /// 

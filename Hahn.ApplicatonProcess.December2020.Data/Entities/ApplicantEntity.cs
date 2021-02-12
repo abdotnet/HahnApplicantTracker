@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Hahn.ApplicatonProcess.December2020.Data.Entities
 {
-    public class Applicant
+    public class ApplicantEntity
     {
         public int ID { get; set; }
         public string Name { get; set; }

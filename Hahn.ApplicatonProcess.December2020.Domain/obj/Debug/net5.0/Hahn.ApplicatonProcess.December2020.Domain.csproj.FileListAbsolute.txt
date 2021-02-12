@@ -9,3 +9,4 @@ C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonPro
 C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Domain\obj\Debug\net5.0\Hahn.ApplicatonProcess.December2020.Domain.dll
 C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Domain\obj\Debug\net5.0\ref\Hahn.ApplicatonProcess.December2020.Domain.dll
 C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Domain\obj\Debug\net5.0\Hahn.ApplicatonProcess.December2020.Domain.pdb
+C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Domain\obj\Debug\net5.0\Hahn.ApplicatonProcess.December2020.Domain.csprojAssemblyReference.cache

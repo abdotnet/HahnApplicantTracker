@@ -101,6 +101,7 @@ namespace Hahn.ApplicatonProcess.December2020.Web
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapFallbackToController("Index", "Home");
             });
         }
     }

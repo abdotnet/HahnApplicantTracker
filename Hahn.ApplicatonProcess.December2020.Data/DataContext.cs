@@ -15,7 +15,7 @@ namespace Hahn.ApplicatonProcess.December2020.Data
         {
         }
 
-        public DbSet<Applicant> Applicants { get; set; }
+        public DbSet<ApplicantEntity> Applicants { get; set; }
 
     }
 }
