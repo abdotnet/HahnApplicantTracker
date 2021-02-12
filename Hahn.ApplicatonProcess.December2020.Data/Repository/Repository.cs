@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -15,56 +16,44 @@ namespace Hahn.ApplicatonProcess.December2020.Data.Repository
             _dataContext = dataContext;
         }
 
-        public IQueryable<TEntity> GetAll()
+        public void Add(TEntity entity)
         {
-            try
-            {
-                return _dataContext.Set<TEntity>();
-            }
-            catch (Exception ex)
-            {
-                throw new Exception($"Couldn't retrieve entities: {ex.Message}");
-            }
+            _dataContext.Set<TEntity>().Add(entity);
         }
 
-        public async Task<TEntity> AddAsync(TEntity entity)
+        public void AddRange(IEnumerable<TEntity> entities)
         {
-            if (entity == null)
-            {
-                throw new ArgumentNullException($"{nameof(AddAsync)} entity must not be null");
-            }
-
-            try
-            {
-                await _dataContext.AddAsync(entity);
-                await _dataContext.SaveChangesAsync();
-
-                return entity;
-            }
-            catch (Exception ex)
-            {
-                throw new Exception($"{nameof(entity)} could not be saved: {ex.Message}");
-            }
+            _dataContext.Set<TEntity>().AddRange(entities);
         }
 
-        public async Task<TEntity> UpdateAsync(TEntity entity)
+        public IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> predicate)
         {
-            if (entity == null)
-            {
-                throw new ArgumentNullException($"{nameof(AddAsync)} entity must not be null");
-            }
+            return _dataContext.Set<TEntity>().Where(predicate);
+        }
 
-            try
-            {
-                _dataContext.Update(entity);
-                await _dataContext.SaveChangesAsync();
+        public TEntity Get(int id)
+        {
+            return _dataContext.Set<TEntity>().Find(id);
+        }
 
-                return entity;
-            }
-            catch (Exception ex)
-            {
-                throw new Exception($"{nameof(entity)} could not be updated: {ex.Message}");
-            }
+        public IEnumerable<TEntity> GetAll()
+        {
+            return _dataContext.Set<TEntity>().ToList();
+        }
+
+        public void Remove(TEntity entity)
+        {
+            _dataContext.Set<TEntity>().Remove(entity);
+        }
+
+        public void RemoveRange(IEnumerable<TEntity> entities)
+        {
+            _dataContext.Set<TEntity>().RemoveRange(entities);
+        }
+
+        public void Update(TEntity entity)
+        {
+            _dataContext.Set<TEntity>().Update(entity);
         }
     }
 }

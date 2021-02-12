@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Hahn.ApplicatonProcess.December2020.Domain.Entities;
 using Hahn.ApplicatonProcess.December2020.Domain.Models;
 using Hahn.ApplicatonProcess.December2020.Web.Contracts.V1.Requests;
 using System;

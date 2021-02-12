@@ -33,7 +33,11 @@
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\Abuba\\source\\repos\\Hahn.ApplicatonProcess.Applicaton\\Hahn.ApplicatonProcess.December2020.Domain\\Hahn.ApplicatonProcess.December2020.Domain.csproj": {
+                "projectPath": "C:\\Users\\Abuba\\source\\repos\\Hahn.ApplicatonProcess.Applicaton\\Hahn.ApplicatonProcess.December2020.Domain\\Hahn.ApplicatonProcess.December2020.Domain.csproj"
+              }
+            }
           }
         },
         "warningProperties": {

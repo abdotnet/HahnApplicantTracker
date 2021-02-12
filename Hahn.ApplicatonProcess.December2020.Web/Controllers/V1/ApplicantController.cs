@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
+using Hahn.ApplicatonProcess.December2020.Domain.Entities;
 using Hahn.ApplicatonProcess.December2020.Domain.Models;
+using Hahn.ApplicatonProcess.December2020.Domain.Services;
 using Hahn.ApplicatonProcess.December2020.Domain.Services.ApplicantService;
 using Hahn.ApplicatonProcess.December2020.Web.Contracts.V1.Requests;
 using Microsoft.AspNetCore.Http;
@@ -20,15 +22,19 @@ namespace Hahn.ApplicatonProcess.December2020.Web.Controllers.V1
     {
         private readonly IApplicantService _applicantService;
         private Mapper _mapper;
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="applicantService"></param>
-        /// <param name="mapper"></param>
-        public ApplicantController(IApplicantService applicantService, Mapper mapper)
+        private IUnitOfWork _unitOfWork;
+       /// <summary>
+       /// 
+       /// </summary>
+       /// <param name="applicantService"></param>
+       /// <param name="mapper"></param>
+       /// <param name="unitOfWork"></param>
+        public ApplicantController(IApplicantService applicantService, Mapper mapper,
+           IUnitOfWork unitOfWork)
         {
             _applicantService = applicantService;
             _mapper = mapper;
+            _unitOfWork = unitOfWork;
         }
 
         /// <summary>
@@ -41,10 +47,11 @@ namespace Hahn.ApplicatonProcess.December2020.Web.Controllers.V1
         {
 
              var applicant = _mapper.Map<Applicant>(model);
-          
+
+            _unitOfWork.Applicant.Add(applicant);
+
             var response = await _applicantService.CreateApplicant(applicant);
-
-
+                
             return Created(response.Message, response);
         }
 

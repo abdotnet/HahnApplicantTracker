@@ -2,6 +2,44 @@
   "version": 3,
   "targets": {
     "net5.0": {
+      "FluentValidation/9.5.0": {
+        "type": "package",
+        "compile": {
+          "lib/net5.0/FluentValidation.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/FluentValidation.dll": {}
+        }
+      },
+      "FluentValidation.AspNetCore/9.5.0": {
+        "type": "package",
+        "dependencies": {
+          "FluentValidation": "9.5.0",
+          "FluentValidation.DependencyInjectionExtensions": "9.5.0"
+        },
+        "compile": {
+          "lib/net5.0/FluentValidation.AspNetCore.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/FluentValidation.AspNetCore.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
+      "FluentValidation.DependencyInjectionExtensions/9.5.0": {
+        "type": "package",
+        "dependencies": {
+          "FluentValidation": "9.5.0",
+          "Microsoft.Extensions.Dependencyinjection.Abstractions": "2.1.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/FluentValidation.DependencyInjectionExtensions.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/FluentValidation.DependencyInjectionExtensions.dll": {}
+        }
+      },
       "Microsoft.EntityFrameworkCore/5.0.3": {
         "type": "package",
         "dependencies": {
@@ -160,10 +198,74 @@
         "runtime": {
           "lib/net5.0/System.Diagnostics.DiagnosticSource.dll": {}
         }
+      },
+      "Hahn.ApplicatonProcess.December2020.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "FluentValidation.AspNetCore": "9.5.0",
+          "Microsoft.EntityFrameworkCore": "5.0.3"
+        },
+        "compile": {
+          "bin/placeholder/Hahn.ApplicatonProcess.December2020.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Hahn.ApplicatonProcess.December2020.Domain.dll": {}
+        }
       }
     }
   },
   "libraries": {
+    "FluentValidation/9.5.0": {
+      "sha512": "gsu4SrlTgTCS57nynfUXmuEqOqQdsgZGd69dO4dJg/TRDvNTXKlw5TPKVoY/ieQLsmFBzd9ax/Y1Tx+8Ds3XKw==",
+      "type": "package",
+      "path": "fluentvalidation/9.5.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "fluent-validation-icon.png",
+        "fluentvalidation.9.5.0.nupkg.sha512",
+        "fluentvalidation.nuspec",
+        "lib/net461/FluentValidation.dll",
+        "lib/net461/FluentValidation.xml",
+        "lib/net5.0/FluentValidation.dll",
+        "lib/net5.0/FluentValidation.xml",
+        "lib/netstandard2.0/FluentValidation.dll",
+        "lib/netstandard2.0/FluentValidation.xml"
+      ]
+    },
+    "FluentValidation.AspNetCore/9.5.0": {
+      "sha512": "cQswiuS0iJEe2eQEEGXMBbq6y7uD3Rxi6ZfcLiyfaFT6TXwQOWtUU2Rf2JaJf9ZtyIudlxf7WvQwKBdBTu6lCw==",
+      "type": "package",
+      "path": "fluentvalidation.aspnetcore/9.5.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "fluent-validation-icon.png",
+        "fluentvalidation.aspnetcore.9.5.0.nupkg.sha512",
+        "fluentvalidation.aspnetcore.nuspec",
+        "lib/net5.0/FluentValidation.AspNetCore.dll",
+        "lib/net5.0/FluentValidation.AspNetCore.xml",
+        "lib/netcoreapp2.1/FluentValidation.AspNetCore.dll",
+        "lib/netcoreapp2.1/FluentValidation.AspNetCore.xml",
+        "lib/netcoreapp3.1/FluentValidation.AspNetCore.dll",
+        "lib/netcoreapp3.1/FluentValidation.AspNetCore.xml"
+      ]
+    },
+    "FluentValidation.DependencyInjectionExtensions/9.5.0": {
+      "sha512": "UNlnBtAtDvk0phjOHNWy5kPyhcf6qSSzNq1dfPIaAZI9pp6pFMap8tHpl/xr3nqRb26Mcg4Jgt0eWOQdY8hyIQ==",
+      "type": "package",
+      "path": "fluentvalidation.dependencyinjectionextensions/9.5.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "fluent-validation-icon.png",
+        "fluentvalidation.dependencyinjectionextensions.9.5.0.nupkg.sha512",
+        "fluentvalidation.dependencyinjectionextensions.nuspec",
+        "lib/netstandard2.0/FluentValidation.DependencyInjectionExtensions.dll",
+        "lib/netstandard2.0/FluentValidation.DependencyInjectionExtensions.xml"
+      ]
+    },
     "Microsoft.EntityFrameworkCore/5.0.3": {
       "sha512": "Dd0z2X2/YVlVWNjNyeNR3+av8wsNe+yYV16xDHJoD/u6eHypPd8g31eNOPqUTDKLPkqqkV7MtzhkXo/OQYFFhA==",
       "type": "package",
@@ -519,10 +621,16 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "Hahn.ApplicatonProcess.December2020.Domain/1.0.0": {
+      "type": "project",
+      "path": "../Hahn.ApplicatonProcess.December2020.Domain/Hahn.ApplicatonProcess.December2020.Domain.csproj",
+      "msbuildProject": "../Hahn.ApplicatonProcess.December2020.Domain/Hahn.ApplicatonProcess.December2020.Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net5.0": [
+      "Hahn.ApplicatonProcess.December2020.Domain >= 1.0.0",
       "Microsoft.EntityFrameworkCore >= 5.0.3"
     ]
   },
@@ -560,7 +668,11 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Abuba\\source\\repos\\Hahn.ApplicatonProcess.Applicaton\\Hahn.ApplicatonProcess.December2020.Domain\\Hahn.ApplicatonProcess.December2020.Domain.csproj": {
+              "projectPath": "C:\\Users\\Abuba\\source\\repos\\Hahn.ApplicatonProcess.Applicaton\\Hahn.ApplicatonProcess.December2020.Domain\\Hahn.ApplicatonProcess.December2020.Domain.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

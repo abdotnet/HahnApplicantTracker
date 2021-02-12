@@ -1,30 +1,29 @@
-﻿using Hahn.ApplicatonProcess.December2020.Data.Entities;
+﻿using Hahn.ApplicatonProcess.December2020.Domain.Entities;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Hahn.ApplicatonProcess.December2020.Data.Repository.ApplicantRepo
 {
-    public class ApplicantRepository : IApplicantRepository
+    public class ApplicantRepository : Repository<Applicant>, IApplicantRepository
     {
-        public Task<ApplicantEntity> AddAsync(ApplicantEntity entity)
+        public DataContext DbContext
         {
-            throw new NotImplementedException();
+            get
+            {
+                return _dataContext as DataContext;
+            }
+        }
+        public ApplicantRepository(DataContext dataContext) : base(dataContext)
+        {
+
         }
 
-        public Task<ApplicantEntity> DeleteAsync(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IQueryable<ApplicantEntity> GetAll()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<ApplicantEntity> UpdateAsync(ApplicantEntity entity)
+        public Task<Applicant> DeleteAsync(int id)
         {
             throw new NotImplementedException();
         }

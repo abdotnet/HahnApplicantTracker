@@ -1,4 +1,5 @@
-﻿using Hahn.ApplicatonProcess.December2020.Data.Entities;
+﻿using Hahn.ApplicatonProcess.December2020.Domain.Entities;
+using Hahn.ApplicatonProcess.December2020.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -15,7 +16,7 @@ namespace Hahn.ApplicatonProcess.December2020.Data
         {
         }
 
-        public DbSet<ApplicantEntity> Applicants { get; set; }
+        public DbSet<Applicant> Applicants { get; set; }
 
     }
 }

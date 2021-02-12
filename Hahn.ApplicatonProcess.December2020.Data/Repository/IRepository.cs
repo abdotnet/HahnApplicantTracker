@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -8,12 +9,17 @@ namespace Hahn.ApplicatonProcess.December2020.Data.Repository
 {
     public interface IRepository<TEntity> where TEntity : class, new()
     {
-        IQueryable<TEntity> GetAll();
+        TEntity Get(int id);
+        IEnumerable<TEntity> GetAll();
+        IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> predicate);
 
-        Task<TEntity> AddAsync(TEntity entity);
+        void Add(TEntity entity);
+        void AddRange(IEnumerable<TEntity> entities);
 
-        Task<TEntity> UpdateAsync(TEntity entity);
+        void Remove(TEntity entity);
+        void RemoveRange(IEnumerable<TEntity> entities);
 
-      
+        void Update(TEntity entity);
+
     }
 }

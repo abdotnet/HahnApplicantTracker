@@ -1,4 +1,5 @@
-﻿using Hahn.ApplicatonProcess.December2020.Domain.Models;
+﻿using Hahn.ApplicatonProcess.December2020.Domain.Entities;
+using Hahn.ApplicatonProcess.December2020.Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,9 @@ namespace Hahn.ApplicatonProcess.December2020.Domain.Services.ApplicantService
 {
     public class ApplicantService : IApplicantService
     {
+        public ApplicantService()
+        {
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -17,7 +21,7 @@ namespace Hahn.ApplicatonProcess.December2020.Domain.Services.ApplicantService
         public async Task<ApiResponse> CreateApplicant(Applicant model)
         {
             ApiResponse response = new ApiResponse();
-
+         
             return response;
         }
         public async Task<ApiResponse> GetApplicant(SearchModel model)

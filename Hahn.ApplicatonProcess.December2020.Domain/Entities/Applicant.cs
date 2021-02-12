@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Hahn.ApplicatonProcess.December2020.Domain.Models
+namespace Hahn.ApplicatonProcess.December2020.Domain.Entities
 {
    public class Applicant
     {

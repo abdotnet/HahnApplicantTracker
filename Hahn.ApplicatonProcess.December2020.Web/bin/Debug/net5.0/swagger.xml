@@ -20,12 +20,13 @@
             
             </summary>
         </member>
-        <member name="M:Hahn.ApplicatonProcess.December2020.Web.Controllers.V1.ApplicantController.#ctor(Hahn.ApplicatonProcess.December2020.Domain.Services.ApplicantService.IApplicantService,AutoMapper.Mapper)">
+        <member name="M:Hahn.ApplicatonProcess.December2020.Web.Controllers.V1.ApplicantController.#ctor(Hahn.ApplicatonProcess.December2020.Domain.Services.ApplicantService.IApplicantService,AutoMapper.Mapper,Hahn.ApplicatonProcess.December2020.Domain.Services.IUnitOfWork)">
             <summary>
             
             </summary>
             <param name="applicantService"></param>
             <param name="mapper"></param>
+            <param name="unitOfWork"></param>
         </member>
         <member name="M:Hahn.ApplicatonProcess.December2020.Web.Controllers.V1.ApplicantController.Post(Hahn.ApplicatonProcess.December2020.Web.Contracts.V1.Requests.ApplicantRequest)">
             <summary>

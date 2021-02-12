@@ -16,6 +16,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using Serilog;
 using Microsoft.EntityFrameworkCore;
+using Hahn.ApplicatonProcess.December2020.Domain.Services;
 
 namespace Hahn.ApplicatonProcess.December2020.Web
 {
@@ -46,6 +47,7 @@ namespace Hahn.ApplicatonProcess.December2020.Web
             services.AddAutoMapper(typeof(Startup));
 
             services.AddTransient<IApplicantService, ApplicantService>();
+            services.AddTransient<IUnitOfWork, UnitOfWork>();
 
             services.AddMvc(opt =>
             {
