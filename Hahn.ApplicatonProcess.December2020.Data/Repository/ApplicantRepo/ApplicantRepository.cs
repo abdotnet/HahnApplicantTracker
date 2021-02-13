@@ -23,9 +23,6 @@ namespace Hahn.ApplicatonProcess.December2020.Data.Repository.ApplicantRepo
 
         }
 
-        public Task<Applicant> DeleteAsync(int id)
-        {
-            throw new NotImplementedException();
-        }
+       
     }
 }

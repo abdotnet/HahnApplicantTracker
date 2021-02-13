@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace Hahn.ApplicatonProcess.December2020.Domain.Infrastructure
 {
-    public class HttpServiceHelper : IHttpServiceHelper
+    public class HttpServiceHelper 
     {
         /// <summary>
         ///  Http get
         /// </summary>
         /// <param name="url"></param>
         /// <returns></returns>
-        public  async Task<String> GetHttpClient(string url)
+        public static  async Task<String> GetHttpClient(string url)
         {
 
             String responseStr = string.Empty;
@@ -36,7 +36,7 @@ namespace Hahn.ApplicatonProcess.December2020.Domain.Infrastructure
         /// <param name="url"></param>
         /// <param name="jsonObject"></param>
         /// <returns></returns>
-        public  async Task<String> PostHttpClient(String url, String jsonObject)
+        public static  async Task<String> PostHttpClient(String url, String jsonObject)
         {
 
             String responseStr = string.Empty;

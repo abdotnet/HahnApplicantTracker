@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
+using Hahn.ApplicatonProcess.December2020.Domain.Contracts.V1.Requests;
 using Hahn.ApplicatonProcess.December2020.Domain.Entities;
 using Hahn.ApplicatonProcess.December2020.Domain.Models;
-using Hahn.ApplicatonProcess.December2020.Web.Contracts.V1.Requests;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +19,9 @@ namespace Hahn.ApplicatonProcess.December2020.Web.Helpers
         /// </summary>
         public AutoMapperProfiles()
         {
-             CreateMap<Applicant, ApplicantRequest>().ReverseMap();
+            CreateMap<Applicant, ApplicantRequest>().ReverseMap();
+            CreateMap<Applicant, ApplicantUpdateRequest>().ReverseMap();
+
         }
     }
 }

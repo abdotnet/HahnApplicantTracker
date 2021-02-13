@@ -20,7 +20,7 @@
             
             </summary>
         </member>
-        <member name="M:Hahn.ApplicatonProcess.December2020.Web.Controllers.V1.ApplicantController.#ctor(Hahn.ApplicatonProcess.December2020.Domain.Services.ApplicantService.IApplicantService,AutoMapper.Mapper,Hahn.ApplicatonProcess.December2020.Domain.Services.IUnitOfWork)">
+        <member name="M:Hahn.ApplicatonProcess.December2020.Web.Controllers.V1.ApplicantController.#ctor(Hahn.ApplicatonProcess.December2020.Domain.Services.ApplicantService.IApplicantService,AutoMapper.IMapper,Hahn.ApplicatonProcess.December2020.Domain.Services.IUnitOfWork)">
             <summary>
             
             </summary>
@@ -28,7 +28,7 @@
             <param name="mapper"></param>
             <param name="unitOfWork"></param>
         </member>
-        <member name="M:Hahn.ApplicatonProcess.December2020.Web.Controllers.V1.ApplicantController.Post(Hahn.ApplicatonProcess.December2020.Web.Contracts.V1.Requests.ApplicantRequest)">
+        <member name="M:Hahn.ApplicatonProcess.December2020.Web.Controllers.V1.ApplicantController.Post(Hahn.ApplicatonProcess.December2020.Domain.Contracts.V1.Requests.ApplicantRequest)">
             <summary>
             Post applicant information
             </summary>
@@ -41,7 +41,7 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Hahn.ApplicatonProcess.December2020.Web.Controllers.V1.ApplicantController.Put(Hahn.ApplicatonProcess.December2020.Web.Contracts.V1.Requests.ApplicantRequest)">
+        <member name="M:Hahn.ApplicatonProcess.December2020.Web.Controllers.V1.ApplicantController.Put(Hahn.ApplicatonProcess.December2020.Domain.Contracts.V1.Requests.ApplicantUpdateRequest)">
             <summary>
             Update applicant information
             </summary>
@@ -53,12 +53,26 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="T:Hahn.ApplicatonProcess.December2020.Web.Filters.ValidationFilters">
+        <member name="T:Hahn.ApplicatonProcess.December2020.Web.Filters.ValidateResultFilter">
+            <summary>
+            
+            </summary>
+            
+        </member>
+        <member name="M:Hahn.ApplicatonProcess.December2020.Web.Filters.ValidateResultFilter.OnResultExecutionAsync(Microsoft.AspNetCore.Mvc.Filters.ResultExecutingContext,Microsoft.AspNetCore.Mvc.Filters.ResultExecutionDelegate)">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+            <param name="next"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Hahn.ApplicatonProcess.December2020.Web.Filters.ValidationFilter">
             <summary>
             
             </summary>
         </member>
-        <member name="M:Hahn.ApplicatonProcess.December2020.Web.Filters.ValidationFilters.OnActionExecutionAsync(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext,Microsoft.AspNetCore.Mvc.Filters.ActionExecutionDelegate)">
+        <member name="M:Hahn.ApplicatonProcess.December2020.Web.Filters.ValidationFilter.OnActionExecutionAsync(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext,Microsoft.AspNetCore.Mvc.Filters.ActionExecutionDelegate)">
             <summary>
             
             </summary>
@@ -86,6 +100,17 @@
             
             </summary>
             <param name="message"></param>
+        </member>
+        <member name="T:Hahn.ApplicatonProcess.December2020.Web.Helpers.Swagger.ApplicantRequestExample">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Hahn.ApplicatonProcess.December2020.Web.Helpers.Swagger.ApplicantRequestExample.GetExamples">
+            <summary>
+            
+            </summary>
+            <returns></returns>
         </member>
         <member name="T:Hahn.ApplicatonProcess.December2020.Web.Middlware.ExceptionHandler">
             <summary>

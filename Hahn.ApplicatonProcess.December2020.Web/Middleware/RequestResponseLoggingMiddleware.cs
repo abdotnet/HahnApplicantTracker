@@ -35,7 +35,7 @@ namespace Hahn.ApplicatonProcess.December2020.Web.Middleware
             //First, get the incoming request
             var request = await FormatRequest(context.Request);
 
-            Log.Information("Request to client: " + request);
+            Log.Information("Request from client: " + request);
 
             var originalBodyStream = context.Response.Body;
 

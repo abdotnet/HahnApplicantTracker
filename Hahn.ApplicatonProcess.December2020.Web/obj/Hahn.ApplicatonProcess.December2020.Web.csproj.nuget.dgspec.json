@@ -241,6 +241,14 @@
               "target": "Package",
               "version": "[5.5.1, )"
             },
+            "Swashbuckle.AspNetCore.Filters": {
+              "target": "Package",
+              "version": "[6.0.1, )"
+            },
+            "Swashbuckle.Examples": {
+              "target": "Package",
+              "version": "[3.12.0, )"
+            },
             "System.IdentityModel.Tokens.Jwt": {
               "target": "Package",
               "version": "[6.7.1, )"

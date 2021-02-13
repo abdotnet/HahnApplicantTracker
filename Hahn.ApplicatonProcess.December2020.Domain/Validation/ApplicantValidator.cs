@@ -1,4 +1,5 @@
 ﻿using FluentValidation;
+using Hahn.ApplicatonProcess.December2020.Domain.Contracts.V1.Requests;
 using Hahn.ApplicatonProcess.December2020.Domain.Entities;
 using Hahn.ApplicatonProcess.December2020.Domain.Infrastructure;
 using Hahn.ApplicatonProcess.December2020.Domain.Models;
@@ -11,16 +12,9 @@ using System.Threading.Tasks;
 
 namespace Hahn.ApplicatonProcess.December2020.Domain.Validation
 {
-    public class ApplicantValidator : AbstractValidator<Applicant>
+    public class ApplicantRequestValidator : AbstractValidator<ApplicantRequest>
     {
-        private readonly IHttpServiceHelper _httpService;
-        private readonly ILogger<ApplicantValidator> _logger;
-        public ApplicantValidator(IHttpServiceHelper httpService, ILogger<ApplicantValidator> logger)
-        {
-            this._httpService = httpService;
-            this._logger = logger;
-        }
-        public ApplicantValidator()
+        public ApplicantRequestValidator()
         {
             RuleFor(applicant => applicant.Name).NotNull().MinimumLength(5);
             RuleFor(applicant => applicant.FamilyName).NotNull().MinimumLength(5);
@@ -31,20 +25,20 @@ namespace Hahn.ApplicatonProcess.December2020.Domain.Validation
 
             RuleFor(applicant => applicant.EmailAddress).Matches(@"^[^@\s]+@[^@\s]+\.[^@\s]+$").WithMessage(c =>
             {
-                this._logger.LogInformation("Email not valid");
+                //this._logger.LogInformation("Email not valid");
                 return "Email not valid";
             });
-
+           // RuleFor(m => m.CountryOfOrigin).NotNull().SetValidator(new CountryValidator(restClient));
             RuleFor(applicant => applicant.CountryOfOrigin).NotNull().NotEmpty().MustAsync(async (country, cancellation) =>
            {
                string url = InfrastructureDefaults.RestCountryUrl + country;
-               string clientResponse = await _httpService.GetHttpClient(url);
-               this._logger.LogInformation(clientResponse);
+               string clientResponse = await HttpServiceHelper.GetHttpClient(url);
+               // this._logger.LogInformation(clientResponse);
                if (!string.IsNullOrEmpty(clientResponse))
                    return true;
 
                return false;
-           }).WithMessage("Country specified is not valid");
+           }).WithMessage("Country name is not valid.");
 
         }
 

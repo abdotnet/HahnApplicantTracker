@@ -18,6 +18,13 @@ using Serilog;
 using Microsoft.EntityFrameworkCore;
 using Hahn.ApplicatonProcess.December2020.Domain.Services;
 using Hahn.ApplicatonProcess.December2020.Domain.Infrastructure;
+using Swashbuckle.Examples;
+using Swashbuckle.AspNetCore.SwaggerGen;
+using Swashbuckle.AspNetCore.Filters;
+using System.Reflection;
+using Hahn.ApplicatonProcess.December2020.Domain.Entities;
+using FluentValidation;
+using Hahn.ApplicatonProcess.December2020.Domain.Contracts.V1.Requests;
 
 namespace Hahn.ApplicatonProcess.December2020.Web
 {
@@ -41,20 +48,26 @@ namespace Hahn.ApplicatonProcess.December2020.Web
         /// This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddMvc(opt =>
+            {
+                opt.Filters.Add(new ValidateResultFilter());
+              
+
+            }).AddFluentValidation(fvc =>
+            {
+                fvc.RegisterValidatorsFromAssemblyContaining<ApplicantRequestValidator>();
+                
+            });
+
             // Loggin and centralized error handling in .net 5
-
-            services.AddDbContext<DataContext>(opt => opt.UseInMemoryDatabase(databaseName: "ApplicantDb"));
-
             services.AddAutoMapper(typeof(Startup));
+          
+            services.AddDbContext<DataContext>(opt => opt.UseInMemoryDatabase(databaseName: "ApplicantDb"));
 
             services.AddTransient<IApplicantService, ApplicantService>();
             services.AddTransient<IUnitOfWork, UnitOfWork>();
-            services.AddTransient<IHttpServiceHelper, HttpServiceHelper>();
-            
-            services.AddMvc(opt =>
-            {
-                opt.Filters.Add<ValidationFilters>();
-            }).AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<ApplicantValidator>());
+
+            //services.AddTransient<IValidator<ApplicantRequest>, ApplicantRequestValidator>();
 
             services.AddSwaggerGen(c =>
             {
@@ -65,8 +78,10 @@ namespace Hahn.ApplicatonProcess.December2020.Web
                     Description = "A simple Applicant tracking system",
 
                 });
-
+                c.ExampleFilters();
             });
+
+            services.AddSwaggerExamplesFromAssemblies(Assembly.GetEntryAssembly());
         }
 
         /// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -85,7 +100,7 @@ namespace Hahn.ApplicatonProcess.December2020.Web
                     });
             });
 
-            app.UseMiddleware<RequestResponseLoggingMiddleware>();
+            //  app.UseMiddleware<RequestResponseLoggingMiddleware>();
 
             app.UseSerilogRequestLogging();
 
@@ -102,11 +117,13 @@ namespace Hahn.ApplicatonProcess.December2020.Web
 
             // app.UseAuthorization();
 
+           
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
                 endpoints.MapFallbackToController("Index", "Home");
             });
+       
         }
     }
 }

@@ -1,8 +1,0 @@
-2021-02-10 07:21:07.940 +01:00 [Information] Starting web host
-2021-02-10 07:21:09.328 +01:00 [Information] HTTP "GET" "/Applicant" responded 404 in 59.9967 ms
-2021-02-10 07:21:21.532 +01:00 [Information] HTTP "GET" "/swagger/index.html" responded 200 in 107.3416 ms
-2021-02-10 07:21:21.681 +01:00 [Information] HTTP "GET" "/swagger/swagger-ui.css" responded 200 in 102.8191 ms
-2021-02-10 07:21:21.681 +01:00 [Information] HTTP "GET" "/swagger/swagger-ui-standalone-preset.js" responded 200 in 99.3990 ms
-2021-02-10 07:21:21.693 +01:00 [Information] HTTP "GET" "/swagger/swagger-ui-bundle.js" responded 200 in 113.7004 ms
-2021-02-10 07:21:21.943 +01:00 [Information] HTTP "GET" "/swagger/favicon-32x32.png" responded 200 in 0.8272 ms
-2021-02-10 07:21:21.991 +01:00 [Information] HTTP "GET" "/swagger/v1/swagger.json" responded 200 in 81.7073 ms

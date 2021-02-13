@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +20,7 @@ namespace Hahn.ApplicatonProcess.December2020.Data.Repository
 
         public void Add(TEntity entity)
         {
+
             _dataContext.Set<TEntity>().Add(entity);
         }
 
@@ -45,6 +47,7 @@ namespace Hahn.ApplicatonProcess.December2020.Data.Repository
         public void Remove(TEntity entity)
         {
             _dataContext.Set<TEntity>().Remove(entity);
+
         }
 
         public void RemoveRange(IEnumerable<TEntity> entities)
