@@ -21,7 +21,7 @@ namespace Hahn.ApplicatonProcess.December2020.Web
 
                 var configuration = new ConfigurationBuilder()
                     .AddJsonFile("appsettings.json")
-                    .AddJsonFile($"appsettings.{currentEnv}.json", optional: true)
+                    .AddJsonFile($"appsettings.{currentEnv}.json", optional: true, reloadOnChange: true)
                     .AddEnvironmentVariables()
                     .Build();
 
@@ -48,9 +48,19 @@ namespace Hahn.ApplicatonProcess.December2020.Web
             }
 
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="args"></param>
+        /// <returns></returns>
         public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
+            Host.CreateDefaultBuilder(args).ConfigureLogging((hostingContext, logging) =>
+            {
+                logging.AddConsole();
+                logging.AddFilter("Microsoft", LogLevel.Information)
+                    .AddFilter("System", LogLevel.Error);
+                 logging.SetMinimumLevel(LogLevel.Trace);
+            })
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>().UseSerilog();

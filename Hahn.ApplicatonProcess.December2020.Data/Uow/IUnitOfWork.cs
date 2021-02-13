@@ -10,6 +10,6 @@ namespace Hahn.ApplicatonProcess.December2020.Domain.Services
     public interface IUnitOfWork : IDisposable
     {
         IApplicantRepository Applicant { get; }
-        int Complete();
+        Task<int> Complete();
     }
 }

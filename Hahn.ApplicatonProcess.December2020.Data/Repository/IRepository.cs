@@ -9,9 +9,9 @@ namespace Hahn.ApplicatonProcess.December2020.Data.Repository
 {
     public interface IRepository<TEntity> where TEntity : class, new()
     {
-        TEntity Get(int id);
-        IEnumerable<TEntity> GetAll();
-        IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> predicate);
+        Task<TEntity> Get(int id);
+        Task<IEnumerable<TEntity>> GetAll();
+        Task<IEnumerable<TEntity>> Find(Expression<Func<TEntity, bool>> predicate);
 
         void Add(TEntity entity);
         void AddRange(IEnumerable<TEntity> entities);

@@ -35,7 +35,7 @@
             <param name="model"></param>
             <returns></returns>
         </member>
-        <member name="M:Hahn.ApplicatonProcess.December2020.Web.Controllers.V1.ApplicantController.Get(Hahn.ApplicatonProcess.December2020.Domain.Models.SearchModel)">
+        <member name="M:Hahn.ApplicatonProcess.December2020.Web.Controllers.V1.ApplicantController.Get(System.Int32)">
             <summary>
             Get applicant information
             </summary>
@@ -116,6 +116,13 @@
             
             </summary>
             <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hahn.ApplicatonProcess.December2020.Web.Program.CreateHostBuilder(System.String[])">
+            <summary>
+            
+            </summary>
+            <param name="args"></param>
             <returns></returns>
         </member>
         <member name="T:Hahn.ApplicatonProcess.December2020.Web.Startup">

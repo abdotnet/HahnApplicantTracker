@@ -18,29 +18,11 @@ namespace Hahn.ApplicatonProcess.December2020.Domain.Services.ApplicantService
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        public async Task<ApiResponse> CreateApplicant(Applicant model)
+        public async Task<string> GetApplicationUrl(Applicant model)
         {
-            ApiResponse response = new ApiResponse();
-         
-            return response;
-        }
-        public async Task<ApiResponse> GetApplicant(SearchModel model)
-        {
-            ApiResponse response = new ApiResponse();
 
-            return response;
+            return string.Empty;
         }
-        public async Task<ApiResponse> UpdateApplicant(Applicant model)
-        {
-            ApiResponse response = new ApiResponse();
-
-            return response;
-        }
-        public async Task<ApiResponse> DeleteApplicant(int applicantId)
-        {
-            ApiResponse response = new ApiResponse();
-
-            return response;
-        }
+     
     }
 }

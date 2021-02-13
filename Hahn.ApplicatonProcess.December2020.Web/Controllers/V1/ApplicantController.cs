@@ -23,12 +23,12 @@ namespace Hahn.ApplicatonProcess.December2020.Web.Controllers.V1
         private readonly IApplicantService _applicantService;
         private Mapper _mapper;
         private IUnitOfWork _unitOfWork;
-       /// <summary>
-       /// 
-       /// </summary>
-       /// <param name="applicantService"></param>
-       /// <param name="mapper"></param>
-       /// <param name="unitOfWork"></param>
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="applicantService"></param>
+        /// <param name="mapper"></param>
+        /// <param name="unitOfWork"></param>
         public ApplicantController(IApplicantService applicantService, Mapper mapper,
            IUnitOfWork unitOfWork)
         {
@@ -45,25 +45,25 @@ namespace Hahn.ApplicatonProcess.December2020.Web.Controllers.V1
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] ApplicantRequest model)
         {
-
-             var applicant = _mapper.Map<Applicant>(model);
+            var applicant = _mapper.Map<Applicant>(model);
 
             _unitOfWork.Applicant.Add(applicant);
+            await _unitOfWork.Complete();
 
-            var response = await _applicantService.CreateApplicant(applicant);
-                
-            return Created(response.Message, response);
+            string url = HttpContext.Request.Scheme + applicant.ID;
+
+            return Created(url, null);
         }
 
         /// <summary>
         /// Get applicant information
         /// </summary>
         /// <returns></returns>
-        [HttpGet]
-        public async Task<IActionResult> Get([FromQuery] SearchModel model)
+        [HttpGet("{applicantId}")]
+        public async Task<IActionResult> Get(int applicantId)
         {
 
-            var response = await _applicantService.GetApplicant(model);
+            var response = await _unitOfWork.Applicant.Get(applicantId);
 
             return Ok(response);
         }
@@ -76,7 +76,8 @@ namespace Hahn.ApplicatonProcess.December2020.Web.Controllers.V1
         {
             var applicant = _mapper.Map<Applicant>(model);
 
-            var response = await _applicantService.UpdateApplicant(applicant);
+            _unitOfWork.Applicant.Update(applicant);
+            var response = await _unitOfWork.Complete();
 
             return Ok(response);
         }
@@ -88,7 +89,9 @@ namespace Hahn.ApplicatonProcess.December2020.Web.Controllers.V1
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
-            var response = await _applicantService.DeleteApplicant(id);
+            var applicant = await _unitOfWork.Applicant.Get(id);
+            _unitOfWork.Applicant.Remove(applicant);
+            var response = await _unitOfWork.Complete();
 
             return Ok(response);
         }

@@ -17,6 +17,7 @@ using Microsoft.OpenApi.Models;
 using Serilog;
 using Microsoft.EntityFrameworkCore;
 using Hahn.ApplicatonProcess.December2020.Domain.Services;
+using Hahn.ApplicatonProcess.December2020.Domain.Infrastructure;
 
 namespace Hahn.ApplicatonProcess.December2020.Web
 {
@@ -48,7 +49,8 @@ namespace Hahn.ApplicatonProcess.December2020.Web
 
             services.AddTransient<IApplicantService, ApplicantService>();
             services.AddTransient<IUnitOfWork, UnitOfWork>();
-
+            services.AddTransient<IHttpServiceHelper, HttpServiceHelper>();
+            
             services.AddMvc(opt =>
             {
                 opt.Filters.Add<ValidationFilters>();

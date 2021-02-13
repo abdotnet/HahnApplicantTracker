@@ -10,9 +10,7 @@ namespace Hahn.ApplicatonProcess.December2020.Domain.Services.ApplicantService
 {
     public interface IApplicantService
     {
-        Task<ApiResponse> CreateApplicant(Applicant model);
-        Task<ApiResponse> GetApplicant(SearchModel model);
-        Task<ApiResponse> UpdateApplicant(Applicant model);
-        Task<ApiResponse> DeleteApplicant(int applicantId);
+        Task<string> GetApplicationUrl(Applicant model);
+    
     }
 }

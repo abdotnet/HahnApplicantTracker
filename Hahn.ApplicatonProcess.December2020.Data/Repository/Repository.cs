@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -26,19 +27,19 @@ namespace Hahn.ApplicatonProcess.December2020.Data.Repository
             _dataContext.Set<TEntity>().AddRange(entities);
         }
 
-        public IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> predicate)
+        public async Task<IEnumerable<TEntity>> Find(Expression<Func<TEntity, bool>> predicate)
         {
-            return _dataContext.Set<TEntity>().Where(predicate);
+            return await Task.Run(() => _dataContext.Set<TEntity>().Where(predicate));
         }
 
-        public TEntity Get(int id)
+        public async Task<TEntity> Get(int id)
         {
-            return _dataContext.Set<TEntity>().Find(id);
+            return await _dataContext.Set<TEntity>().FindAsync(id);
         }
 
-        public IEnumerable<TEntity> GetAll()
+        public async Task<IEnumerable<TEntity>> GetAll()
         {
-            return _dataContext.Set<TEntity>().ToList();
+            return await _dataContext.Set<TEntity>().ToListAsync();
         }
 
         public void Remove(TEntity entity)
