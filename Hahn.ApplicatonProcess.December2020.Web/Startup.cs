@@ -25,6 +25,7 @@ using System.Reflection;
 using Hahn.ApplicatonProcess.December2020.Domain.Entities;
 using FluentValidation;
 using Hahn.ApplicatonProcess.December2020.Domain.Contracts.V1.Requests;
+using Hahn.ApplicatonProcess.December2020.Web.Helpers.Swagger;
 
 namespace Hahn.ApplicatonProcess.December2020.Web
 {
@@ -51,12 +52,9 @@ namespace Hahn.ApplicatonProcess.December2020.Web
             services.AddMvc(opt =>
             {
                 opt.Filters.Add(new ValidateResultFilter());
-              
-
             }).AddFluentValidation(fvc =>
             {
                 fvc.RegisterValidatorsFromAssemblyContaining<ApplicantRequestValidator>();
-                
             });
 
             // Loggin and centralized error handling in .net 5
@@ -81,7 +79,9 @@ namespace Hahn.ApplicatonProcess.December2020.Web
                 c.ExampleFilters();
             });
 
-            services.AddSwaggerExamplesFromAssemblies(Assembly.GetEntryAssembly());
+            services.AddSwaggerExamplesFromAssemblyOf<ApplicantRequestExample>();
+           // services.AddSwaggerExamples();
+                //(Assembly.GetEntryAssembly());
         }
 
         /// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

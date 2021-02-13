@@ -54,14 +54,15 @@ namespace Hahn.ApplicatonProcess.December2020.Web
         /// <param name="args"></param>
         /// <returns></returns>
         public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args).ConfigureLogging((hostingContext, logging) =>
+            Host.CreateDefaultBuilder(args)
+
+            .ConfigureLogging((hostingContext, logging) =>
             {
                 logging.AddConsole();
                 logging.AddFilter("Microsoft", LogLevel.Information)
                     .AddFilter("System", LogLevel.Error);
-                 logging.SetMinimumLevel(LogLevel.Trace);
-            })
-                .ConfigureWebHostDefaults(webBuilder =>
+                logging.SetMinimumLevel(LogLevel.Trace);
+            }).ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>().UseSerilog();
                 });

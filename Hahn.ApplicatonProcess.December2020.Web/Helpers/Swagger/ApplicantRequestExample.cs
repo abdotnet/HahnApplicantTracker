@@ -11,13 +11,14 @@ namespace Hahn.ApplicatonProcess.December2020.Web.Helpers.Swagger
     /// <summary>
     /// 
     /// </summary>
-    public class ApplicantRequestExample : IExamplesProvider
+    public class ApplicantRequestExample : IExamplesProvider<ApplicantRequest>
     {
+
         /// <summary>
         /// 
         /// </summary>
         /// <returns></returns>
-        public object GetExamples()
+        public ApplicantRequest GetExamples()
         {
             return new ApplicantRequest
             {
@@ -27,7 +28,32 @@ namespace Hahn.ApplicatonProcess.December2020.Web.Helpers.Swagger
                 EmailAddress = "abudotnet@gmai.com",
                 FamilyName = "Ahmann",
                 Hired = true,
-                Name = "Adel"
+                Name = "Adele"
+            };
+        }
+    }
+    /// <summary>
+    /// 
+    /// </summary>
+    public class ApplicantUpdateRequestExample : IExamplesProvider<ApplicantUpdateRequest>
+    {
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public ApplicantUpdateRequest GetExamples()
+        {
+            return new ApplicantUpdateRequest
+            {
+                Address = "Lagos ketun road Canal off ghana way",
+                Age = 56,
+                CountryOfOrigin = "United",
+                EmailAddress = "success@inhahntest.com",
+                FamilyName = "Terry",
+                Hired = true,
+                Name = "Curry",
+                ID = 1
             };
         }
     }

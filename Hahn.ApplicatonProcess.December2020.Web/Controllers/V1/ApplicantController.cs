@@ -1,12 +1,14 @@
 ﻿using AutoMapper;
 using Hahn.ApplicatonProcess.December2020.Domain.Contracts.V1.Requests;
 using Hahn.ApplicatonProcess.December2020.Domain.Entities;
+using Hahn.ApplicatonProcess.December2020.Domain.Infrastructure;
 using Hahn.ApplicatonProcess.December2020.Domain.Models;
 using Hahn.ApplicatonProcess.December2020.Domain.Services;
 using Hahn.ApplicatonProcess.December2020.Domain.Services.ApplicantService;
 using Hahn.ApplicatonProcess.December2020.Web.Helpers.Swagger;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using Swashbuckle.AspNetCore.Filters;
 using System;
 using System.Collections.Generic;
@@ -52,14 +54,20 @@ namespace Hahn.ApplicatonProcess.December2020.Web.Controllers.V1
             var applicant = _mapper.Map<Applicant>(model);
 
             _unitOfWork.Applicant.Add(applicant);
-            await _unitOfWork.Complete();
+            int success = await _unitOfWork.Complete();
 
-            var request = HttpContext.Request;
+            if (success > 0)
+            {
+                var request = HttpContext.Request;
 
-            string url = $"{request.Scheme }// { request.Host.ToUriComponent()}";
+                string appUrl = $"{request.Scheme }://{request.Host.ToUriComponent()}{request.Path}/{applicant.ID}";
 
+                return Created(appUrl, new { url = appUrl });
+            }
 
-            return Created(url, new { id = applicant.ID });
+            var response = JsonConvert.SerializeObject(new ApiResponse() { Status = ApplicationStatusCode.BadRequest, Message = "BadRequest" });
+
+            return BadRequest(response);
         }
 
         /// <summary>
@@ -72,7 +80,14 @@ namespace Hahn.ApplicatonProcess.December2020.Web.Controllers.V1
 
             var response = await _unitOfWork.Applicant.Get(applicantId);
 
-            return Ok(response);
+            var apiReponse = new ApiResponse()
+            {
+                Status = ApplicationStatusCode.Successful,
+                Message = ApplicationStatusCode.GetResponseCode(ApplicationStatusCode.Successful),
+                Data = response
+            };
+
+            return Ok(apiReponse);
         }
         /// <summary>
         /// Update applicant information
@@ -86,7 +101,13 @@ namespace Hahn.ApplicatonProcess.December2020.Web.Controllers.V1
             _unitOfWork.Applicant.Update(applicant);
             var response = await _unitOfWork.Complete();
 
-            return Ok(response);
+            var apiReponse = new ApiResponse()
+            {
+                Status = ApplicationStatusCode.Successful,
+                Message = ApplicationStatusCode.GetResponseCode(ApplicationStatusCode.Successful),
+                Data ="Updated"
+            };
+            return Ok(apiReponse);
         }
 
         /// <summary>
@@ -98,9 +119,15 @@ namespace Hahn.ApplicatonProcess.December2020.Web.Controllers.V1
         {
             var applicant = await _unitOfWork.Applicant.Get(id);
             _unitOfWork.Applicant.Remove(applicant);
-            var response = await _unitOfWork.Complete();
+            await _unitOfWork.Complete();
 
-            return Ok(response);
+            var apiReponse = new ApiResponse()
+            {
+                Status =   ApplicationStatusCode.Successful,
+                Message = ApplicationStatusCode.GetResponseCode(ApplicationStatusCode.Successful),
+                Data = "Deleted"
+            };
+            return Ok(apiReponse);
         }
     }
 }

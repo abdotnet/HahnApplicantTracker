@@ -112,6 +112,17 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="T:Hahn.ApplicatonProcess.December2020.Web.Helpers.Swagger.ApplicantUpdateRequestExample">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Hahn.ApplicatonProcess.December2020.Web.Helpers.Swagger.ApplicantUpdateRequestExample.GetExamples">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:Hahn.ApplicatonProcess.December2020.Web.Middlware.ExceptionHandler">
             <summary>
             
