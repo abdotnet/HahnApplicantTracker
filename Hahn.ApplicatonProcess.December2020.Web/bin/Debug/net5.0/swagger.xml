@@ -90,6 +90,11 @@
             
             </summary>
         </member>
+        <member name="T:Hahn.ApplicatonProcess.December2020.Web.Helpers.CommonLoggingTools">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="T:Hahn.ApplicatonProcess.December2020.Web.Helpers.ModelValidationException">
             <summary>
             

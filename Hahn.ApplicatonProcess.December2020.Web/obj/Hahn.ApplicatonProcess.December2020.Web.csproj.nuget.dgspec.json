@@ -209,6 +209,10 @@
               "target": "Package",
               "version": "[5.0.0, )"
             },
+            "Microsoft.IO.RecyclableMemoryStream": {
+              "target": "Package",
+              "version": "[1.4.0, )"
+            },
             "Serilog.AspNetCore": {
               "target": "Package",
               "version": "[3.4.0, )"

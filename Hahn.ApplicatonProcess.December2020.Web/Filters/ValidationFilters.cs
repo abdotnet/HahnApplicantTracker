@@ -1,11 +1,15 @@
 ﻿using Hahn.ApplicatonProcess.December2020.Domain.Contracts.V1.Responses;
 using Hahn.ApplicatonProcess.December2020.Domain.Infrastructure;
 using Hahn.ApplicatonProcess.December2020.Domain.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
+using Serilog;
 using System;
+using System.IO;
 using System.Linq;
 using System.Net;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace Hahn.ApplicatonProcess.December2020.Web.Filters
@@ -17,6 +21,7 @@ namespace Hahn.ApplicatonProcess.December2020.Web.Filters
     /// 
     public class ValidateResultFilter : Attribute, IAsyncResultFilter
     {
+
         /// <summary>
         /// 
         /// </summary>
@@ -25,6 +30,7 @@ namespace Hahn.ApplicatonProcess.December2020.Web.Filters
         /// <returns></returns>
         public async Task OnResultExecutionAsync(ResultExecutingContext context, ResultExecutionDelegate next)
         {
+
             // Before the controller 
             if (!context.ModelState.IsValid)
             {
@@ -52,15 +58,18 @@ namespace Hahn.ApplicatonProcess.December2020.Web.Filters
                 apiResponse.Message = "Bad Request";
                 apiResponse.Data = errorResponse;
                 context.HttpContext.Response.StatusCode = (int)HttpStatusCode.BadRequest;
-                
+
                 context.Result = new BadRequestObjectResult(apiResponse);
                 await context.Result.ExecuteResultAsync(context);
-
                 return;
             }
             await next();
+
         }
+
     }
+
+
     /// <summary>
     /// 
     /// </summary>

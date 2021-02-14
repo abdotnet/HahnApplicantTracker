@@ -1,0 +1,13 @@
+2021-02-14 15:01:24.211 +01:00 [Information] Starting web host
+2021-02-14 15:01:24.901 +01:00 [Information] HTTP "GET" "/swagger/index.html" responded 200 in 126.9590 ms
+2021-02-14 15:01:25.293 +01:00 [Information] HTTP "GET" "/swagger/v1/swagger.json" responded 200 in 178.3641 ms
+2021-02-14 15:01:48.786 +01:00 [Information] Http Request Information:
+Schema:http Host: localhost:37797 Path: /api/v1/Applicant QueryString:  Request Body: {"name":"Adele","familyName":"Ahmann","address":"Main Street Grand Canal Way Royal Canal Way","countryOfOrigin":"UK","emailAddress":"abudotnet@gmai.com","age":26,"hired":true}
+2021-02-14 15:01:51.116 +01:00 [Information] Http Response Information:
+Schema:http Host: localhost:37797 Path: /api/v1/Applicant QueryString:  Response Body: {"status":"00","message":"Successful","data":{"url":"http://localhost:37797/api/v1/Applicant/1"}}
+2021-02-14 15:01:51.118 +01:00 [Information] HTTP "POST" "/api/v1/Applicant" responded 201 in 2383.1850 ms
+2021-02-14 15:01:57.447 +01:00 [Information] Http Request Information:
+Schema:http Host: localhost:37797 Path: /api/v1/Applicant QueryString:  Request Body: {"name":"Adele","familyName":"Ahmann","address":"Main Street Grand Canal Way Royal Canal Way","countryOfOrigin":"UK","emailAddress":"abudotnet@gmai.com","age":26,"hired":true}
+2021-02-14 15:01:58.236 +01:00 [Information] Http Response Information:
+Schema:http Host: localhost:37797 Path: /api/v1/Applicant QueryString:  Response Body: {"status":"00","message":"Successful","data":{"url":"http://localhost:37797/api/v1/Applicant/2"}}
+2021-02-14 15:01:58.237 +01:00 [Information] HTTP "POST" "/api/v1/Applicant" responded 201 in 790.5556 ms

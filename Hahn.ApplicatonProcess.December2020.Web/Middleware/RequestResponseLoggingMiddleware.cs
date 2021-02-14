@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Microsoft.IO;
 using Serilog;
 using System;
 using System.Collections.Generic;
@@ -15,7 +16,7 @@ namespace Hahn.ApplicatonProcess.December2020.Web.Middleware
     public class RequestResponseLoggingMiddleware
     {
         private readonly RequestDelegate _next;
-
+        private readonly Microsoft.IO.RecyclableMemoryStreamManager _recyclableMemoryStreamManager;
         /// <summary>
         /// 
         /// </summary>
@@ -23,6 +24,7 @@ namespace Hahn.ApplicatonProcess.December2020.Web.Middleware
         public RequestResponseLoggingMiddleware(RequestDelegate next)
         {
             _next = next;
+            _recyclableMemoryStreamManager = new RecyclableMemoryStreamManager();
         }
 
         /// <summary>
@@ -32,55 +34,59 @@ namespace Hahn.ApplicatonProcess.December2020.Web.Middleware
         /// <returns></returns>
         public async Task Invoke(HttpContext context)
         {
-            //First, get the incoming request
-            var request = await FormatRequest(context.Request);
+            await LogRequest(context);
 
-            Log.Information("Request from client: " + request);
-
+            await LogResponse(context);
+        }
+      
+        private async Task LogResponse(HttpContext context)
+        {
             var originalBodyStream = context.Response.Body;
+            await using var responseBody = _recyclableMemoryStreamManager.GetStream();
+            context.Response.Body = responseBody;
+            await _next(context);
+            context.Response.Body.Seek(0, SeekOrigin.Begin);
+            var text = await new StreamReader(context.Response.Body).ReadToEndAsync();
+            context.Response.Body.Seek(0, SeekOrigin.Begin);
+            Log.Information($"Http Response Information:{Environment.NewLine}" +
+                                   $"Schema:{context.Request.Scheme} " +
+                                   $"Host: {context.Request.Host} " +
+                                   $"Path: {context.Request.Path} " +
+                                   $"QueryString: {context.Request.QueryString} " +
+                                   $"Response Body: {text}");
+            await responseBody.CopyToAsync(originalBodyStream);
+        }
 
-            using (var responseBody = new MemoryStream())
+        private async Task LogRequest(HttpContext context)
+        {
+            context.Request.EnableBuffering();
+            await using var requestStream = _recyclableMemoryStreamManager.GetStream();
+            await context.Request.Body.CopyToAsync(requestStream);
+            Log.Information($"Http Request Information:{Environment.NewLine}" +
+                                   $"Schema:{context.Request.Scheme} " +
+                                   $"Host: {context.Request.Host} " +
+                                   $"Path: {context.Request.Path} " +
+                                   $"QueryString: {context.Request.QueryString} " +
+                                   $"Request Body: {ReadStreamInChunks(requestStream)}");
+            context.Request.Body.Position = 0;
+        }
+        private static string ReadStreamInChunks(Stream stream)
+        {
+            const int readChunkBufferLength = 4096;
+            stream.Seek(0, SeekOrigin.Begin);
+            using var textWriter = new StringWriter();
+            using var reader = new StreamReader(stream);
+            var readChunk = new char[readChunkBufferLength];
+            int readChunkLength;
+            do
             {
-                context.Response.Body = responseBody;
-
-                await _next(context);
-
-                var response = await FormatResponse(context.Response);
-
-                Log.Information("Response to client: " + response);
-
-                await responseBody.CopyToAsync(originalBodyStream);
-            }
+                readChunkLength = reader.ReadBlock(readChunk,
+                                                   0,
+                                                   readChunkBufferLength);
+                textWriter.Write(readChunk, 0, readChunkLength);
+            } while (readChunkLength > 0);
+            return textWriter.ToString();
         }
-
-        private async Task<string> FormatRequest(HttpRequest request)
-        {
-            var body = request.Body;
-
-            request.EnableBuffering();
-
-            //We now need to read the request stream.  First, we create a new byte[] with the same length as the request stream...
-            var buffer = new byte[Convert.ToInt32(request.ContentLength)];
-
-            await request.Body.ReadAsync(buffer, 0, buffer.Length);
-
-            //We convert the byte[] into a string using UTF8 encoding...
-            var bodyAsText = Encoding.UTF8.GetString(buffer);
-
-            request.Body = body;
-
-            return $"{request.Scheme} {request.Host}{request.Path} {request.QueryString} {bodyAsText}";
-        }
-
-        private async Task<string> FormatResponse(HttpResponse response)
-        {
-            response.Body.Seek(0, SeekOrigin.Begin);
-            //copy it into a string
-            string text = await new StreamReader(response.Body).ReadToEndAsync();
-            //We need to reset the reader for the response so that the client can read it.
-            response.Body.Seek(0, SeekOrigin.Begin);
-         
-            return $"{response.StatusCode}: {text}";
-        }
+     
     }
 }

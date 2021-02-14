@@ -5,6 +5,7 @@ using Hahn.ApplicatonProcess.December2020.Domain.Infrastructure;
 using Hahn.ApplicatonProcess.December2020.Domain.Models;
 using Hahn.ApplicatonProcess.December2020.Domain.Services;
 using Hahn.ApplicatonProcess.December2020.Domain.Services.ApplicantService;
+using Hahn.ApplicatonProcess.December2020.Web.Helpers;
 using Hahn.ApplicatonProcess.December2020.Web.Helpers.Swagger;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -50,7 +51,6 @@ namespace Hahn.ApplicatonProcess.December2020.Web.Controllers.V1
         [SwaggerRequestExample(typeof(ApplicantRequest), typeof(ApplicantRequestExample))]
         public async Task<IActionResult> Post([FromBody] ApplicantRequest model)
         {
-
             var applicant = _mapper.Map<Applicant>(model);
 
             _unitOfWork.Applicant.Add(applicant);
@@ -58,11 +58,15 @@ namespace Hahn.ApplicatonProcess.December2020.Web.Controllers.V1
 
             if (success > 0)
             {
-                var request = HttpContext.Request;
+                string appUrl = $"{Urls.GetUrl(HttpContext)}{applicant.ID}";
 
-                string appUrl = $"{request.Scheme }://{request.Host.ToUriComponent()}{request.Path}/{applicant.ID}";
-
-                return Created(appUrl, new { url = appUrl });
+                var apiReponse = new ApiResponse()
+                {
+                    Status = ApplicationStatusCode.Successful,
+                    Message = ApplicationStatusCode.GetResponseCode(ApplicationStatusCode.Successful),
+                    Data = new { url = appUrl }
+                };
+                return Created(appUrl, apiReponse);
             }
 
             var response = JsonConvert.SerializeObject(new ApiResponse() { Status = ApplicationStatusCode.BadRequest, Message = "BadRequest" });
