@@ -1,0 +1,1016 @@
+2021-02-15 05:29:52.126 +01:00 [Information] Starting web host
+2021-02-15 05:29:53.288 +01:00 [Information] Http Request Information:
+Schema:http Host: localhost:37797 Path: /hahnprocess QueryString:  Request Body: 
+2021-02-15 05:29:53.643 +01:00 [Information] Http Response Information:
+Schema:http Host: localhost:37797 Path: /hahnprocess QueryString:  Response Body: 
+2021-02-15 05:29:53.647 +01:00 [Information] HTTP "GET" "/hahnprocess" responded 304 in 533.8632 ms
+2021-02-15 11:13:50.154 +01:00 [Information] Starting web host
+2021-02-15 11:13:50.920 +01:00 [Information] HTTP "GET" "/swagger/index.html" responded 200 in 155.5829 ms
+2021-02-15 11:13:50.920 +01:00 [Information] HTTP "GET" "/swagger/index.html" responded 200 in 155.6053 ms
+2021-02-15 11:13:51.257 +01:00 [Information] HTTP "GET" "/swagger/v1/swagger.json" responded 200 in 134.5918 ms
+2021-02-15 11:13:59.084 +01:00 [Information] Http Request Information:
+Schema:http Host: localhost:37797 Path: /api/v1/Applicant QueryString:  Request Body: {"name":"Adele","familyName":"Ahmann","address":"Main Street Grand Canal Way Royal Canal Way","countryOfOrigin":"UK","emailAddress":"abudotnet@gmai.com","age":26,"hired":true}
+2021-02-15 11:14:08.187 +01:00 [Information] Http Response Information:
+Schema:http Host: localhost:37797 Path: /api/v1/Applicant QueryString:  Response Body: {"status":"00","message":"Successful","data":{"url":"http://localhost:37797/api/v1/Applicant/1"}}
+2021-02-15 11:14:08.190 +01:00 [Information] HTTP "POST" "/api/v1/Applicant" responded 201 in 9200.2418 ms
+2021-02-15 11:14:19.800 +01:00 [Information] Http Request Information:
+Schema:http Host: localhost:37797 Path: /api/v1/Applicant QueryString:  Request Body: {"id":1,"name":"Curry","familyName":"Terry","address":"Lagos ketun road Canal off ghana way","countryOfOrigin":"United","emailAddress":"success@inhahntest.com","age":56,"hired":true}
+2021-02-15 11:14:56.293 +01:00 [Error] HTTP "PUT" "/api/v1/Applicant" responded 500 in 36492.7832 ms
+System.InvalidOperationException: The instance of entity type 'Applicant' cannot be tracked because another instance with the same key value for {'ID'} is already being tracked. When attaching existing entities, ensure that only one entity instance with a given key value is attached. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see the conflicting key values.
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.ThrowIdentityConflict(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry, Boolean updateDuplicate)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.StartTracking(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState oldState, EntityState newState, Boolean acceptChanges, Boolean modifyProperties)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState entityState, Boolean acceptChanges, Boolean modifyProperties, Nullable`1 forceStateWhenUnknownKey)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.PaintAction(EntityEntryGraphNode`1 node)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraph[TState](EntityEntryGraphNode`1 node, Func`2 handleNode)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.AttachGraph(InternalEntityEntry rootEntry, EntityState targetState, EntityState storeGeneratedWithKeySetTargetState, Boolean forceStateWhenUnknownKey)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.SetEntityState(InternalEntityEntry entry, EntityState entityState)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.Update(TEntity entity)
+   at Hahn.ApplicatonProcess.December2020.Data.Repository.Repository`1.Update(TEntity entity) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Data\Repository\Repository.cs:line 60
+   at Hahn.ApplicatonProcess.December2020.Web.Controllers.V1.ApplicantController.Put(ApplicantUpdateRequest model) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Controllers\V1\ApplicantController.cs:line 126
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Hahn.ApplicatonProcess.December2020.Web.Middleware.RequestResponseLoggingMiddleware.LogResponse(HttpContext context) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Middleware\RequestResponseLoggingMiddleware.cs:line 47
+   at Hahn.ApplicatonProcess.December2020.Web.Middleware.RequestResponseLoggingMiddleware.LogResponse(HttpContext context) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Middleware\RequestResponseLoggingMiddleware.cs:line 57
+   at Hahn.ApplicatonProcess.December2020.Web.Middleware.RequestResponseLoggingMiddleware.Invoke(HttpContext context) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Middleware\RequestResponseLoggingMiddleware.cs:line 39
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2021-02-15 11:14:56.420 +01:00 [Error] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: The instance of entity type 'Applicant' cannot be tracked because another instance with the same key value for {'ID'} is already being tracked. When attaching existing entities, ensure that only one entity instance with a given key value is attached. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see the conflicting key values.
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.ThrowIdentityConflict(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry, Boolean updateDuplicate)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.StartTracking(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState oldState, EntityState newState, Boolean acceptChanges, Boolean modifyProperties)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState entityState, Boolean acceptChanges, Boolean modifyProperties, Nullable`1 forceStateWhenUnknownKey)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.PaintAction(EntityEntryGraphNode`1 node)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraph[TState](EntityEntryGraphNode`1 node, Func`2 handleNode)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.AttachGraph(InternalEntityEntry rootEntry, EntityState targetState, EntityState storeGeneratedWithKeySetTargetState, Boolean forceStateWhenUnknownKey)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.SetEntityState(InternalEntityEntry entry, EntityState entityState)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.Update(TEntity entity)
+   at Hahn.ApplicatonProcess.December2020.Data.Repository.Repository`1.Update(TEntity entity) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Data\Repository\Repository.cs:line 60
+   at Hahn.ApplicatonProcess.December2020.Web.Controllers.V1.ApplicantController.Put(ApplicantUpdateRequest model) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Controllers\V1\ApplicantController.cs:line 126
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Hahn.ApplicatonProcess.December2020.Web.Middleware.RequestResponseLoggingMiddleware.LogResponse(HttpContext context) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Middleware\RequestResponseLoggingMiddleware.cs:line 47
+   at Hahn.ApplicatonProcess.December2020.Web.Middleware.RequestResponseLoggingMiddleware.LogResponse(HttpContext context) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Middleware\RequestResponseLoggingMiddleware.cs:line 57
+   at Hahn.ApplicatonProcess.December2020.Web.Middleware.RequestResponseLoggingMiddleware.Invoke(HttpContext context) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Middleware\RequestResponseLoggingMiddleware.cs:line 39
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.<Invoke>g__Awaited|6_0(ExceptionHandlerMiddleware middleware, HttpContext context, Task task)
+2021-02-15 11:14:56.723 +01:00 [Error] An exception was thrown attempting to execute the error handler.
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'The stream with Id c2c7da9c-a222-48a8-9e85-8dbe053e5cb7 and Tag  is disposed.'.
+   at Microsoft.IO.RecyclableMemoryStream.ThrowDisposedException()
+   at Microsoft.IO.RecyclableMemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count)
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, CancellationToken cancellationToken)
+   at Hahn.ApplicatonProcess.December2020.Web.Startup.<>c.<<Configure>b__5_3>d.MoveNext() in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Startup.cs:line 90
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.HandleException(HttpContext context, ExceptionDispatchInfo edi)
+2021-02-15 11:14:56.733 +01:00 [Error] Connection ID ""18230571297501347858"", Request ID ""80000016-0001-fd00-b63f-84710c7967bb"": An unhandled exception was thrown by the application.
+System.InvalidOperationException: The instance of entity type 'Applicant' cannot be tracked because another instance with the same key value for {'ID'} is already being tracked. When attaching existing entities, ensure that only one entity instance with a given key value is attached. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see the conflicting key values.
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.ThrowIdentityConflict(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry, Boolean updateDuplicate)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.StartTracking(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState oldState, EntityState newState, Boolean acceptChanges, Boolean modifyProperties)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState entityState, Boolean acceptChanges, Boolean modifyProperties, Nullable`1 forceStateWhenUnknownKey)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.PaintAction(EntityEntryGraphNode`1 node)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraph[TState](EntityEntryGraphNode`1 node, Func`2 handleNode)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.AttachGraph(InternalEntityEntry rootEntry, EntityState targetState, EntityState storeGeneratedWithKeySetTargetState, Boolean forceStateWhenUnknownKey)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.SetEntityState(InternalEntityEntry entry, EntityState entityState)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.Update(TEntity entity)
+   at Hahn.ApplicatonProcess.December2020.Data.Repository.Repository`1.Update(TEntity entity) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Data\Repository\Repository.cs:line 60
+   at Hahn.ApplicatonProcess.December2020.Web.Controllers.V1.ApplicantController.Put(ApplicantUpdateRequest model) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Controllers\V1\ApplicantController.cs:line 126
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Hahn.ApplicatonProcess.December2020.Web.Middleware.RequestResponseLoggingMiddleware.LogResponse(HttpContext context) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Middleware\RequestResponseLoggingMiddleware.cs:line 47
+   at Hahn.ApplicatonProcess.December2020.Web.Middleware.RequestResponseLoggingMiddleware.LogResponse(HttpContext context) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Middleware\RequestResponseLoggingMiddleware.cs:line 57
+   at Hahn.ApplicatonProcess.December2020.Web.Middleware.RequestResponseLoggingMiddleware.Invoke(HttpContext context) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Middleware\RequestResponseLoggingMiddleware.cs:line 39
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.<Invoke>g__Awaited|6_0(ExceptionHandlerMiddleware middleware, HttpContext context, Task task)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.HandleException(HttpContext context, ExceptionDispatchInfo edi)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.<Invoke>g__Awaited|6_0(ExceptionHandlerMiddleware middleware, HttpContext context, Task task)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2021-02-15 11:16:14.637 +01:00 [Information] Http Request Information:
+Schema:http Host: localhost:37797 Path: /api/v1/Applicant QueryString:  Request Body: {"id":1,"name":"Curry","familyName":"Terry","address":"Lagos ketun road Canal off ghana way","countryOfOrigin":"United","emailAddress":"success@inhahntest.com","age":56,"hired":true}
+2021-02-15 11:18:39.626 +01:00 [Error] HTTP "PUT" "/api/v1/Applicant" responded 500 in 144990.2041 ms
+System.InvalidOperationException: The instance of entity type 'Applicant' cannot be tracked because another instance with the same key value for {'ID'} is already being tracked. When attaching existing entities, ensure that only one entity instance with a given key value is attached. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see the conflicting key values.
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.ThrowIdentityConflict(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry, Boolean updateDuplicate)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.StartTracking(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState oldState, EntityState newState, Boolean acceptChanges, Boolean modifyProperties)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState entityState, Boolean acceptChanges, Boolean modifyProperties, Nullable`1 forceStateWhenUnknownKey)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.PaintAction(EntityEntryGraphNode`1 node)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraph[TState](EntityEntryGraphNode`1 node, Func`2 handleNode)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.AttachGraph(InternalEntityEntry rootEntry, EntityState targetState, EntityState storeGeneratedWithKeySetTargetState, Boolean forceStateWhenUnknownKey)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.SetEntityState(InternalEntityEntry entry, EntityState entityState)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.Update(TEntity entity)
+   at Hahn.ApplicatonProcess.December2020.Data.Repository.Repository`1.Update(TEntity entity) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Data\Repository\Repository.cs:line 60
+   at Hahn.ApplicatonProcess.December2020.Web.Controllers.V1.ApplicantController.Put(ApplicantUpdateRequest model) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Controllers\V1\ApplicantController.cs:line 126
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Hahn.ApplicatonProcess.December2020.Web.Middleware.RequestResponseLoggingMiddleware.LogResponse(HttpContext context) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Middleware\RequestResponseLoggingMiddleware.cs:line 47
+   at Hahn.ApplicatonProcess.December2020.Web.Middleware.RequestResponseLoggingMiddleware.LogResponse(HttpContext context) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Middleware\RequestResponseLoggingMiddleware.cs:line 57
+   at Hahn.ApplicatonProcess.December2020.Web.Middleware.RequestResponseLoggingMiddleware.Invoke(HttpContext context) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Middleware\RequestResponseLoggingMiddleware.cs:line 39
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2021-02-15 11:18:39.629 +01:00 [Error] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: The instance of entity type 'Applicant' cannot be tracked because another instance with the same key value for {'ID'} is already being tracked. When attaching existing entities, ensure that only one entity instance with a given key value is attached. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see the conflicting key values.
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.ThrowIdentityConflict(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry, Boolean updateDuplicate)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.StartTracking(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState oldState, EntityState newState, Boolean acceptChanges, Boolean modifyProperties)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState entityState, Boolean acceptChanges, Boolean modifyProperties, Nullable`1 forceStateWhenUnknownKey)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.PaintAction(EntityEntryGraphNode`1 node)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraph[TState](EntityEntryGraphNode`1 node, Func`2 handleNode)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.AttachGraph(InternalEntityEntry rootEntry, EntityState targetState, EntityState storeGeneratedWithKeySetTargetState, Boolean forceStateWhenUnknownKey)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.SetEntityState(InternalEntityEntry entry, EntityState entityState)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.Update(TEntity entity)
+   at Hahn.ApplicatonProcess.December2020.Data.Repository.Repository`1.Update(TEntity entity) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Data\Repository\Repository.cs:line 60
+   at Hahn.ApplicatonProcess.December2020.Web.Controllers.V1.ApplicantController.Put(ApplicantUpdateRequest model) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Controllers\V1\ApplicantController.cs:line 126
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Hahn.ApplicatonProcess.December2020.Web.Middleware.RequestResponseLoggingMiddleware.LogResponse(HttpContext context) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Middleware\RequestResponseLoggingMiddleware.cs:line 47
+   at Hahn.ApplicatonProcess.December2020.Web.Middleware.RequestResponseLoggingMiddleware.LogResponse(HttpContext context) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Middleware\RequestResponseLoggingMiddleware.cs:line 57
+   at Hahn.ApplicatonProcess.December2020.Web.Middleware.RequestResponseLoggingMiddleware.Invoke(HttpContext context) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Middleware\RequestResponseLoggingMiddleware.cs:line 39
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.<Invoke>g__Awaited|6_0(ExceptionHandlerMiddleware middleware, HttpContext context, Task task)
+2021-02-15 11:18:39.669 +01:00 [Error] An exception was thrown attempting to execute the error handler.
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'The stream with Id 5de9dc7a-e3d0-4dcf-973c-bd227a7707ad and Tag  is disposed.'.
+   at Microsoft.IO.RecyclableMemoryStream.ThrowDisposedException()
+   at Microsoft.IO.RecyclableMemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count)
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, CancellationToken cancellationToken)
+   at Hahn.ApplicatonProcess.December2020.Web.Startup.<>c.<<Configure>b__5_3>d.MoveNext() in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Startup.cs:line 90
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.HandleException(HttpContext context, ExceptionDispatchInfo edi)
+2021-02-15 11:18:39.670 +01:00 [Error] Connection ID ""18230571297501347858"", Request ID ""80000017-0001-fd00-b63f-84710c7967bb"": An unhandled exception was thrown by the application.
+System.InvalidOperationException: The instance of entity type 'Applicant' cannot be tracked because another instance with the same key value for {'ID'} is already being tracked. When attaching existing entities, ensure that only one entity instance with a given key value is attached. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see the conflicting key values.
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.ThrowIdentityConflict(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry, Boolean updateDuplicate)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.StartTracking(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState oldState, EntityState newState, Boolean acceptChanges, Boolean modifyProperties)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState entityState, Boolean acceptChanges, Boolean modifyProperties, Nullable`1 forceStateWhenUnknownKey)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.PaintAction(EntityEntryGraphNode`1 node)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraph[TState](EntityEntryGraphNode`1 node, Func`2 handleNode)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.AttachGraph(InternalEntityEntry rootEntry, EntityState targetState, EntityState storeGeneratedWithKeySetTargetState, Boolean forceStateWhenUnknownKey)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.SetEntityState(InternalEntityEntry entry, EntityState entityState)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.Update(TEntity entity)
+   at Hahn.ApplicatonProcess.December2020.Data.Repository.Repository`1.Update(TEntity entity) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Data\Repository\Repository.cs:line 60
+   at Hahn.ApplicatonProcess.December2020.Web.Controllers.V1.ApplicantController.Put(ApplicantUpdateRequest model) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Controllers\V1\ApplicantController.cs:line 126
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Hahn.ApplicatonProcess.December2020.Web.Middleware.RequestResponseLoggingMiddleware.LogResponse(HttpContext context) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Middleware\RequestResponseLoggingMiddleware.cs:line 47
+   at Hahn.ApplicatonProcess.December2020.Web.Middleware.RequestResponseLoggingMiddleware.LogResponse(HttpContext context) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Middleware\RequestResponseLoggingMiddleware.cs:line 57
+   at Hahn.ApplicatonProcess.December2020.Web.Middleware.RequestResponseLoggingMiddleware.Invoke(HttpContext context) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Middleware\RequestResponseLoggingMiddleware.cs:line 39
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.<Invoke>g__Awaited|6_0(ExceptionHandlerMiddleware middleware, HttpContext context, Task task)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.HandleException(HttpContext context, ExceptionDispatchInfo edi)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.<Invoke>g__Awaited|6_0(ExceptionHandlerMiddleware middleware, HttpContext context, Task task)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2021-02-15 11:19:17.469 +01:00 [Information] Http Request Information:
+Schema:http Host: localhost:37797 Path: /api/v1/Applicant QueryString:  Request Body: {"id":1,"name":"Curry","familyName":"Terry","address":"Lagos ketun road Canal off ghana way","countryOfOrigin":"United","emailAddress":"success@inhahntest.com","age":56,"hired":true}
+2021-02-15 11:19:39.736 +01:00 [Error] HTTP "PUT" "/api/v1/Applicant" responded 500 in 22267.0643 ms
+System.InvalidOperationException: The instance of entity type 'Applicant' cannot be tracked because another instance with the same key value for {'ID'} is already being tracked. When attaching existing entities, ensure that only one entity instance with a given key value is attached. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see the conflicting key values.
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.ThrowIdentityConflict(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry, Boolean updateDuplicate)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.StartTracking(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState oldState, EntityState newState, Boolean acceptChanges, Boolean modifyProperties)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState entityState, Boolean acceptChanges, Boolean modifyProperties, Nullable`1 forceStateWhenUnknownKey)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.PaintAction(EntityEntryGraphNode`1 node)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraph[TState](EntityEntryGraphNode`1 node, Func`2 handleNode)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.AttachGraph(InternalEntityEntry rootEntry, EntityState targetState, EntityState storeGeneratedWithKeySetTargetState, Boolean forceStateWhenUnknownKey)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.SetEntityState(InternalEntityEntry entry, EntityState entityState)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.Update(TEntity entity)
+   at Hahn.ApplicatonProcess.December2020.Data.Repository.Repository`1.Update(TEntity entity) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Data\Repository\Repository.cs:line 60
+   at Hahn.ApplicatonProcess.December2020.Web.Controllers.V1.ApplicantController.Put(ApplicantUpdateRequest model) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Controllers\V1\ApplicantController.cs:line 126
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Hahn.ApplicatonProcess.December2020.Web.Middleware.RequestResponseLoggingMiddleware.LogResponse(HttpContext context) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Middleware\RequestResponseLoggingMiddleware.cs:line 47
+   at Hahn.ApplicatonProcess.December2020.Web.Middleware.RequestResponseLoggingMiddleware.LogResponse(HttpContext context) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Middleware\RequestResponseLoggingMiddleware.cs:line 57
+   at Hahn.ApplicatonProcess.December2020.Web.Middleware.RequestResponseLoggingMiddleware.Invoke(HttpContext context) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Middleware\RequestResponseLoggingMiddleware.cs:line 39
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2021-02-15 11:19:39.741 +01:00 [Error] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: The instance of entity type 'Applicant' cannot be tracked because another instance with the same key value for {'ID'} is already being tracked. When attaching existing entities, ensure that only one entity instance with a given key value is attached. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see the conflicting key values.
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.ThrowIdentityConflict(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry, Boolean updateDuplicate)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.StartTracking(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState oldState, EntityState newState, Boolean acceptChanges, Boolean modifyProperties)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState entityState, Boolean acceptChanges, Boolean modifyProperties, Nullable`1 forceStateWhenUnknownKey)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.PaintAction(EntityEntryGraphNode`1 node)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraph[TState](EntityEntryGraphNode`1 node, Func`2 handleNode)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.AttachGraph(InternalEntityEntry rootEntry, EntityState targetState, EntityState storeGeneratedWithKeySetTargetState, Boolean forceStateWhenUnknownKey)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.SetEntityState(InternalEntityEntry entry, EntityState entityState)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.Update(TEntity entity)
+   at Hahn.ApplicatonProcess.December2020.Data.Repository.Repository`1.Update(TEntity entity) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Data\Repository\Repository.cs:line 60
+   at Hahn.ApplicatonProcess.December2020.Web.Controllers.V1.ApplicantController.Put(ApplicantUpdateRequest model) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Controllers\V1\ApplicantController.cs:line 126
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Hahn.ApplicatonProcess.December2020.Web.Middleware.RequestResponseLoggingMiddleware.LogResponse(HttpContext context) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Middleware\RequestResponseLoggingMiddleware.cs:line 47
+   at Hahn.ApplicatonProcess.December2020.Web.Middleware.RequestResponseLoggingMiddleware.LogResponse(HttpContext context) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Middleware\RequestResponseLoggingMiddleware.cs:line 57
+   at Hahn.ApplicatonProcess.December2020.Web.Middleware.RequestResponseLoggingMiddleware.Invoke(HttpContext context) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Middleware\RequestResponseLoggingMiddleware.cs:line 39
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.<Invoke>g__Awaited|6_0(ExceptionHandlerMiddleware middleware, HttpContext context, Task task)
+2021-02-15 11:20:53.191 +01:00 [Error] An exception was thrown attempting to execute the error handler.
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'The stream with Id 76f7fc52-ea08-4f49-bc70-0e5b174d1582 and Tag  is disposed.'.
+   at Microsoft.IO.RecyclableMemoryStream.ThrowDisposedException()
+   at Microsoft.IO.RecyclableMemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count)
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, CancellationToken cancellationToken)
+   at Hahn.ApplicatonProcess.December2020.Web.Startup.<>c.<<Configure>b__5_3>d.MoveNext() in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Startup.cs:line 90
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.HandleException(HttpContext context, ExceptionDispatchInfo edi)
+2021-02-15 11:20:53.193 +01:00 [Error] Connection ID ""18230571297501347858"", Request ID ""80000018-0001-fd00-b63f-84710c7967bb"": An unhandled exception was thrown by the application.
+System.InvalidOperationException: The instance of entity type 'Applicant' cannot be tracked because another instance with the same key value for {'ID'} is already being tracked. When attaching existing entities, ensure that only one entity instance with a given key value is attached. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see the conflicting key values.
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.ThrowIdentityConflict(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry, Boolean updateDuplicate)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.StartTracking(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState oldState, EntityState newState, Boolean acceptChanges, Boolean modifyProperties)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState entityState, Boolean acceptChanges, Boolean modifyProperties, Nullable`1 forceStateWhenUnknownKey)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.PaintAction(EntityEntryGraphNode`1 node)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraph[TState](EntityEntryGraphNode`1 node, Func`2 handleNode)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.AttachGraph(InternalEntityEntry rootEntry, EntityState targetState, EntityState storeGeneratedWithKeySetTargetState, Boolean forceStateWhenUnknownKey)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.SetEntityState(InternalEntityEntry entry, EntityState entityState)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.Update(TEntity entity)
+   at Hahn.ApplicatonProcess.December2020.Data.Repository.Repository`1.Update(TEntity entity) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Data\Repository\Repository.cs:line 60
+   at Hahn.ApplicatonProcess.December2020.Web.Controllers.V1.ApplicantController.Put(ApplicantUpdateRequest model) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Controllers\V1\ApplicantController.cs:line 126
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Hahn.ApplicatonProcess.December2020.Web.Middleware.RequestResponseLoggingMiddleware.LogResponse(HttpContext context) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Middleware\RequestResponseLoggingMiddleware.cs:line 47
+   at Hahn.ApplicatonProcess.December2020.Web.Middleware.RequestResponseLoggingMiddleware.LogResponse(HttpContext context) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Middleware\RequestResponseLoggingMiddleware.cs:line 57
+   at Hahn.ApplicatonProcess.December2020.Web.Middleware.RequestResponseLoggingMiddleware.Invoke(HttpContext context) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Middleware\RequestResponseLoggingMiddleware.cs:line 39
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.<Invoke>g__Awaited|6_0(ExceptionHandlerMiddleware middleware, HttpContext context, Task task)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.HandleException(HttpContext context, ExceptionDispatchInfo edi)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.<Invoke>g__Awaited|6_0(ExceptionHandlerMiddleware middleware, HttpContext context, Task task)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2021-02-15 11:21:59.198 +01:00 [Information] Http Request Information:
+Schema:http Host: localhost:37797 Path: /api/v1/Applicant QueryString:  Request Body: {"id":1,"name":"Curry","familyName":"Terry","address":"Lagos ketun road Canal off ghana way","countryOfOrigin":"United","emailAddress":"success@inhahntest.com","age":56,"hired":true}
+2021-02-15 11:22:24.279 +01:00 [Error] HTTP "PUT" "/api/v1/Applicant" responded 500 in 25081.4412 ms
+System.InvalidOperationException: The instance of entity type 'Applicant' cannot be tracked because another instance with the same key value for {'ID'} is already being tracked. When attaching existing entities, ensure that only one entity instance with a given key value is attached. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see the conflicting key values.
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.ThrowIdentityConflict(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry, Boolean updateDuplicate)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.StartTracking(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState oldState, EntityState newState, Boolean acceptChanges, Boolean modifyProperties)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState entityState, Boolean acceptChanges, Boolean modifyProperties, Nullable`1 forceStateWhenUnknownKey)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.PaintAction(EntityEntryGraphNode`1 node)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraph[TState](EntityEntryGraphNode`1 node, Func`2 handleNode)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.AttachGraph(InternalEntityEntry rootEntry, EntityState targetState, EntityState storeGeneratedWithKeySetTargetState, Boolean forceStateWhenUnknownKey)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.SetEntityState(InternalEntityEntry entry, EntityState entityState)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.Update(TEntity entity)
+   at Hahn.ApplicatonProcess.December2020.Data.Repository.Repository`1.Update(TEntity entity) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Data\Repository\Repository.cs:line 60
+   at Hahn.ApplicatonProcess.December2020.Web.Controllers.V1.ApplicantController.Put(ApplicantUpdateRequest model) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Controllers\V1\ApplicantController.cs:line 126
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Hahn.ApplicatonProcess.December2020.Web.Middleware.RequestResponseLoggingMiddleware.LogResponse(HttpContext context) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Middleware\RequestResponseLoggingMiddleware.cs:line 47
+   at Hahn.ApplicatonProcess.December2020.Web.Middleware.RequestResponseLoggingMiddleware.LogResponse(HttpContext context) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Middleware\RequestResponseLoggingMiddleware.cs:line 57
+   at Hahn.ApplicatonProcess.December2020.Web.Middleware.RequestResponseLoggingMiddleware.Invoke(HttpContext context) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Middleware\RequestResponseLoggingMiddleware.cs:line 39
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2021-02-15 11:22:24.285 +01:00 [Error] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: The instance of entity type 'Applicant' cannot be tracked because another instance with the same key value for {'ID'} is already being tracked. When attaching existing entities, ensure that only one entity instance with a given key value is attached. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see the conflicting key values.
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.ThrowIdentityConflict(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry, Boolean updateDuplicate)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.StartTracking(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState oldState, EntityState newState, Boolean acceptChanges, Boolean modifyProperties)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState entityState, Boolean acceptChanges, Boolean modifyProperties, Nullable`1 forceStateWhenUnknownKey)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.PaintAction(EntityEntryGraphNode`1 node)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraph[TState](EntityEntryGraphNode`1 node, Func`2 handleNode)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.AttachGraph(InternalEntityEntry rootEntry, EntityState targetState, EntityState storeGeneratedWithKeySetTargetState, Boolean forceStateWhenUnknownKey)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.SetEntityState(InternalEntityEntry entry, EntityState entityState)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.Update(TEntity entity)
+   at Hahn.ApplicatonProcess.December2020.Data.Repository.Repository`1.Update(TEntity entity) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Data\Repository\Repository.cs:line 60
+   at Hahn.ApplicatonProcess.December2020.Web.Controllers.V1.ApplicantController.Put(ApplicantUpdateRequest model) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Controllers\V1\ApplicantController.cs:line 126
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Hahn.ApplicatonProcess.December2020.Web.Middleware.RequestResponseLoggingMiddleware.LogResponse(HttpContext context) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Middleware\RequestResponseLoggingMiddleware.cs:line 47
+   at Hahn.ApplicatonProcess.December2020.Web.Middleware.RequestResponseLoggingMiddleware.LogResponse(HttpContext context) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Middleware\RequestResponseLoggingMiddleware.cs:line 57
+   at Hahn.ApplicatonProcess.December2020.Web.Middleware.RequestResponseLoggingMiddleware.Invoke(HttpContext context) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Middleware\RequestResponseLoggingMiddleware.cs:line 39
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.<Invoke>g__Awaited|6_0(ExceptionHandlerMiddleware middleware, HttpContext context, Task task)
+2021-02-15 11:22:48.605 +01:00 [Error] An exception was thrown attempting to execute the error handler.
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'The stream with Id 7018f30c-6d1b-4676-9e64-6c0954ed6a79 and Tag  is disposed.'.
+   at Microsoft.IO.RecyclableMemoryStream.ThrowDisposedException()
+   at Microsoft.IO.RecyclableMemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count)
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, CancellationToken cancellationToken)
+   at Hahn.ApplicatonProcess.December2020.Web.Startup.<>c.<<Configure>b__5_3>d.MoveNext() in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Startup.cs:line 90
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.HandleException(HttpContext context, ExceptionDispatchInfo edi)
+2021-02-15 11:22:48.606 +01:00 [Error] Connection ID ""18230571297501347858"", Request ID ""80000019-0001-fd00-b63f-84710c7967bb"": An unhandled exception was thrown by the application.
+System.InvalidOperationException: The instance of entity type 'Applicant' cannot be tracked because another instance with the same key value for {'ID'} is already being tracked. When attaching existing entities, ensure that only one entity instance with a given key value is attached. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see the conflicting key values.
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.ThrowIdentityConflict(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry, Boolean updateDuplicate)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.StartTracking(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState oldState, EntityState newState, Boolean acceptChanges, Boolean modifyProperties)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState entityState, Boolean acceptChanges, Boolean modifyProperties, Nullable`1 forceStateWhenUnknownKey)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.PaintAction(EntityEntryGraphNode`1 node)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraph[TState](EntityEntryGraphNode`1 node, Func`2 handleNode)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.AttachGraph(InternalEntityEntry rootEntry, EntityState targetState, EntityState storeGeneratedWithKeySetTargetState, Boolean forceStateWhenUnknownKey)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.SetEntityState(InternalEntityEntry entry, EntityState entityState)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.Update(TEntity entity)
+   at Hahn.ApplicatonProcess.December2020.Data.Repository.Repository`1.Update(TEntity entity) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Data\Repository\Repository.cs:line 60
+   at Hahn.ApplicatonProcess.December2020.Web.Controllers.V1.ApplicantController.Put(ApplicantUpdateRequest model) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Controllers\V1\ApplicantController.cs:line 126
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Hahn.ApplicatonProcess.December2020.Web.Middleware.RequestResponseLoggingMiddleware.LogResponse(HttpContext context) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Middleware\RequestResponseLoggingMiddleware.cs:line 47
+   at Hahn.ApplicatonProcess.December2020.Web.Middleware.RequestResponseLoggingMiddleware.LogResponse(HttpContext context) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Middleware\RequestResponseLoggingMiddleware.cs:line 57
+   at Hahn.ApplicatonProcess.December2020.Web.Middleware.RequestResponseLoggingMiddleware.Invoke(HttpContext context) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Middleware\RequestResponseLoggingMiddleware.cs:line 39
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.<Invoke>g__Awaited|6_0(ExceptionHandlerMiddleware middleware, HttpContext context, Task task)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.HandleException(HttpContext context, ExceptionDispatchInfo edi)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.<Invoke>g__Awaited|6_0(ExceptionHandlerMiddleware middleware, HttpContext context, Task task)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2021-02-15 11:24:04.625 +01:00 [Information] Http Request Information:
+Schema:http Host: localhost:37797 Path: /api/v1/Applicant QueryString:  Request Body: {"id":1,"name":"Curry","familyName":"Terry","address":"Lagos ketun road Canal off ghana way","countryOfOrigin":"United","emailAddress":"success@inhahntest.com","age":56,"hired":true}
+2021-02-15 11:24:24.043 +01:00 [Error] HTTP "PUT" "/api/v1/Applicant" responded 500 in 19418.7474 ms
+System.InvalidOperationException: The instance of entity type 'Applicant' cannot be tracked because another instance with the same key value for {'ID'} is already being tracked. When attaching existing entities, ensure that only one entity instance with a given key value is attached. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see the conflicting key values.
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.ThrowIdentityConflict(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry, Boolean updateDuplicate)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.StartTracking(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState oldState, EntityState newState, Boolean acceptChanges, Boolean modifyProperties)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState entityState, Boolean acceptChanges, Boolean modifyProperties, Nullable`1 forceStateWhenUnknownKey)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.PaintAction(EntityEntryGraphNode`1 node)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraph[TState](EntityEntryGraphNode`1 node, Func`2 handleNode)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.AttachGraph(InternalEntityEntry rootEntry, EntityState targetState, EntityState storeGeneratedWithKeySetTargetState, Boolean forceStateWhenUnknownKey)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.SetEntityState(InternalEntityEntry entry, EntityState entityState)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.Update(TEntity entity)
+   at Hahn.ApplicatonProcess.December2020.Data.Repository.Repository`1.Update(TEntity entity) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Data\Repository\Repository.cs:line 60
+   at Hahn.ApplicatonProcess.December2020.Web.Controllers.V1.ApplicantController.Put(ApplicantUpdateRequest model) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Controllers\V1\ApplicantController.cs:line 126
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Hahn.ApplicatonProcess.December2020.Web.Middleware.RequestResponseLoggingMiddleware.LogResponse(HttpContext context) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Middleware\RequestResponseLoggingMiddleware.cs:line 47
+   at Hahn.ApplicatonProcess.December2020.Web.Middleware.RequestResponseLoggingMiddleware.LogResponse(HttpContext context) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Middleware\RequestResponseLoggingMiddleware.cs:line 57
+   at Hahn.ApplicatonProcess.December2020.Web.Middleware.RequestResponseLoggingMiddleware.Invoke(HttpContext context) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Middleware\RequestResponseLoggingMiddleware.cs:line 39
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2021-02-15 11:24:24.049 +01:00 [Error] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: The instance of entity type 'Applicant' cannot be tracked because another instance with the same key value for {'ID'} is already being tracked. When attaching existing entities, ensure that only one entity instance with a given key value is attached. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see the conflicting key values.
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.ThrowIdentityConflict(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry, Boolean updateDuplicate)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.StartTracking(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState oldState, EntityState newState, Boolean acceptChanges, Boolean modifyProperties)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState entityState, Boolean acceptChanges, Boolean modifyProperties, Nullable`1 forceStateWhenUnknownKey)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.PaintAction(EntityEntryGraphNode`1 node)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraph[TState](EntityEntryGraphNode`1 node, Func`2 handleNode)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.AttachGraph(InternalEntityEntry rootEntry, EntityState targetState, EntityState storeGeneratedWithKeySetTargetState, Boolean forceStateWhenUnknownKey)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.SetEntityState(InternalEntityEntry entry, EntityState entityState)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.Update(TEntity entity)
+   at Hahn.ApplicatonProcess.December2020.Data.Repository.Repository`1.Update(TEntity entity) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Data\Repository\Repository.cs:line 60
+   at Hahn.ApplicatonProcess.December2020.Web.Controllers.V1.ApplicantController.Put(ApplicantUpdateRequest model) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Controllers\V1\ApplicantController.cs:line 126
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Hahn.ApplicatonProcess.December2020.Web.Middleware.RequestResponseLoggingMiddleware.LogResponse(HttpContext context) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Middleware\RequestResponseLoggingMiddleware.cs:line 47
+   at Hahn.ApplicatonProcess.December2020.Web.Middleware.RequestResponseLoggingMiddleware.LogResponse(HttpContext context) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Middleware\RequestResponseLoggingMiddleware.cs:line 57
+   at Hahn.ApplicatonProcess.December2020.Web.Middleware.RequestResponseLoggingMiddleware.Invoke(HttpContext context) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Middleware\RequestResponseLoggingMiddleware.cs:line 39
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.<Invoke>g__Awaited|6_0(ExceptionHandlerMiddleware middleware, HttpContext context, Task task)
+2021-02-15 11:33:14.183 +01:00 [Information] Starting web host
+2021-02-15 11:33:14.898 +01:00 [Information] HTTP "GET" "/swagger/index.html" responded 200 in 87.1924 ms
+2021-02-15 11:33:14.898 +01:00 [Information] HTTP "GET" "/swagger/index.html" responded 200 in 178.3973 ms
+2021-02-15 11:33:15.257 +01:00 [Information] HTTP "GET" "/swagger/v1/swagger.json" responded 200 in 144.4494 ms
+2021-02-15 11:33:22.067 +01:00 [Information] Http Request Information:
+Schema:http Host: localhost:37797 Path: /api/v1/Applicant QueryString:  Request Body: {"name":"Adele","familyName":"Ahmann","address":"Main Street Grand Canal Way Royal Canal Way","countryOfOrigin":"UK","emailAddress":"abudotnet@gmai.com","age":26,"hired":true}
+2021-02-15 11:33:30.999 +01:00 [Warning] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2021-02-15 11:33:33.489 +01:00 [Information] Http Response Information:
+Schema:http Host: localhost:37797 Path: /api/v1/Applicant QueryString:  Response Body: {"status":"00","message":"Successful","data":{"url":"http://localhost:37797/api/v1/Applicant/1"}}
+2021-02-15 11:33:35.482 +01:00 [Information] HTTP "POST" "/api/v1/Applicant" responded 201 in 13468.7818 ms
+2021-02-15 11:33:45.932 +01:00 [Information] Http Request Information:
+Schema:http Host: localhost:37797 Path: /api/v1/Applicant QueryString:  Request Body: {"id":1,"name":"Curry","familyName":"Terry","address":"Lagos ketun road Canal off ghana way","countryOfOrigin":"United","emailAddress":"success@inhahntest.com","age":56,"hired":true}
+2021-02-15 11:33:58.157 +01:00 [Error] HTTP "PUT" "/api/v1/Applicant" responded 500 in 12226.3697 ms
+System.InvalidOperationException: The instance of entity type 'Applicant' cannot be tracked because another instance with the key value '{ID: 1}' is already being tracked. When attaching existing entities, ensure that only one entity instance with a given key value is attached.
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.ThrowIdentityConflict(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry, Boolean updateDuplicate)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.StartTracking(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState oldState, EntityState newState, Boolean acceptChanges, Boolean modifyProperties)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState entityState, Boolean acceptChanges, Boolean modifyProperties, Nullable`1 forceStateWhenUnknownKey)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.PaintAction(EntityEntryGraphNode`1 node)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraph[TState](EntityEntryGraphNode`1 node, Func`2 handleNode)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.AttachGraph(InternalEntityEntry rootEntry, EntityState targetState, EntityState storeGeneratedWithKeySetTargetState, Boolean forceStateWhenUnknownKey)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.SetEntityState(InternalEntityEntry entry, EntityState entityState)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.Update(TEntity entity)
+   at Hahn.ApplicatonProcess.December2020.Data.Repository.Repository`1.Update(TEntity entity) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Data\Repository\Repository.cs:line 60
+   at Hahn.ApplicatonProcess.December2020.Web.Controllers.V1.ApplicantController.Put(ApplicantUpdateRequest model) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Controllers\V1\ApplicantController.cs:line 126
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Hahn.ApplicatonProcess.December2020.Web.Middleware.RequestResponseLoggingMiddleware.LogResponse(HttpContext context) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Middleware\RequestResponseLoggingMiddleware.cs:line 47
+   at Hahn.ApplicatonProcess.December2020.Web.Middleware.RequestResponseLoggingMiddleware.LogResponse(HttpContext context) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Middleware\RequestResponseLoggingMiddleware.cs:line 57
+   at Hahn.ApplicatonProcess.December2020.Web.Middleware.RequestResponseLoggingMiddleware.Invoke(HttpContext context) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Middleware\RequestResponseLoggingMiddleware.cs:line 39
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2021-02-15 11:33:58.256 +01:00 [Error] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: The instance of entity type 'Applicant' cannot be tracked because another instance with the key value '{ID: 1}' is already being tracked. When attaching existing entities, ensure that only one entity instance with a given key value is attached.
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.ThrowIdentityConflict(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry, Boolean updateDuplicate)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.StartTracking(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState oldState, EntityState newState, Boolean acceptChanges, Boolean modifyProperties)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState entityState, Boolean acceptChanges, Boolean modifyProperties, Nullable`1 forceStateWhenUnknownKey)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.PaintAction(EntityEntryGraphNode`1 node)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraph[TState](EntityEntryGraphNode`1 node, Func`2 handleNode)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.AttachGraph(InternalEntityEntry rootEntry, EntityState targetState, EntityState storeGeneratedWithKeySetTargetState, Boolean forceStateWhenUnknownKey)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.SetEntityState(InternalEntityEntry entry, EntityState entityState)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.Update(TEntity entity)
+   at Hahn.ApplicatonProcess.December2020.Data.Repository.Repository`1.Update(TEntity entity) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Data\Repository\Repository.cs:line 60
+   at Hahn.ApplicatonProcess.December2020.Web.Controllers.V1.ApplicantController.Put(ApplicantUpdateRequest model) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Controllers\V1\ApplicantController.cs:line 126
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Hahn.ApplicatonProcess.December2020.Web.Middleware.RequestResponseLoggingMiddleware.LogResponse(HttpContext context) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Middleware\RequestResponseLoggingMiddleware.cs:line 47
+   at Hahn.ApplicatonProcess.December2020.Web.Middleware.RequestResponseLoggingMiddleware.LogResponse(HttpContext context) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Middleware\RequestResponseLoggingMiddleware.cs:line 57
+   at Hahn.ApplicatonProcess.December2020.Web.Middleware.RequestResponseLoggingMiddleware.Invoke(HttpContext context) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Middleware\RequestResponseLoggingMiddleware.cs:line 39
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.<Invoke>g__Awaited|6_0(ExceptionHandlerMiddleware middleware, HttpContext context, Task task)
+2021-02-15 11:33:58.526 +01:00 [Error] An exception was thrown attempting to execute the error handler.
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'The stream with Id fbc4f2b2-5794-4e37-a8f9-1c0aa88562da and Tag  is disposed.'.
+   at Microsoft.IO.RecyclableMemoryStream.ThrowDisposedException()
+   at Microsoft.IO.RecyclableMemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count)
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, CancellationToken cancellationToken)
+   at Hahn.ApplicatonProcess.December2020.Web.Startup.<>c.<<Configure>b__5_3>d.MoveNext() in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Startup.cs:line 93
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.HandleException(HttpContext context, ExceptionDispatchInfo edi)
+2021-02-15 11:33:58.535 +01:00 [Error] Connection ID ""18014398511092596737"", Request ID ""80000005-0000-fa00-b63f-84710c7967bb"": An unhandled exception was thrown by the application.
+System.InvalidOperationException: The instance of entity type 'Applicant' cannot be tracked because another instance with the key value '{ID: 1}' is already being tracked. When attaching existing entities, ensure that only one entity instance with a given key value is attached.
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.ThrowIdentityConflict(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry, Boolean updateDuplicate)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.StartTracking(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState oldState, EntityState newState, Boolean acceptChanges, Boolean modifyProperties)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState entityState, Boolean acceptChanges, Boolean modifyProperties, Nullable`1 forceStateWhenUnknownKey)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.PaintAction(EntityEntryGraphNode`1 node)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraph[TState](EntityEntryGraphNode`1 node, Func`2 handleNode)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.AttachGraph(InternalEntityEntry rootEntry, EntityState targetState, EntityState storeGeneratedWithKeySetTargetState, Boolean forceStateWhenUnknownKey)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.SetEntityState(InternalEntityEntry entry, EntityState entityState)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.Update(TEntity entity)
+   at Hahn.ApplicatonProcess.December2020.Data.Repository.Repository`1.Update(TEntity entity) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Data\Repository\Repository.cs:line 60
+   at Hahn.ApplicatonProcess.December2020.Web.Controllers.V1.ApplicantController.Put(ApplicantUpdateRequest model) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Controllers\V1\ApplicantController.cs:line 126
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Hahn.ApplicatonProcess.December2020.Web.Middleware.RequestResponseLoggingMiddleware.LogResponse(HttpContext context) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Middleware\RequestResponseLoggingMiddleware.cs:line 47
+   at Hahn.ApplicatonProcess.December2020.Web.Middleware.RequestResponseLoggingMiddleware.LogResponse(HttpContext context) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Middleware\RequestResponseLoggingMiddleware.cs:line 57
+   at Hahn.ApplicatonProcess.December2020.Web.Middleware.RequestResponseLoggingMiddleware.Invoke(HttpContext context) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Middleware\RequestResponseLoggingMiddleware.cs:line 39
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.<Invoke>g__Awaited|6_0(ExceptionHandlerMiddleware middleware, HttpContext context, Task task)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.HandleException(HttpContext context, ExceptionDispatchInfo edi)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.<Invoke>g__Awaited|6_0(ExceptionHandlerMiddleware middleware, HttpContext context, Task task)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2021-02-15 13:10:46.819 +01:00 [Information] Starting web host
+2021-02-15 13:10:47.498 +01:00 [Information] Http Request Information:
+Schema:http Host: localhost:37797 Path: /hahnprocess QueryString:  Request Body: 
+2021-02-15 13:11:02.300 +01:00 [Information] HTTP "GET" "/swagger/index.html" responded 200 in 51.5793 ms
+2021-02-15 13:11:02.300 +01:00 [Information] HTTP "GET" "/swagger/index.html" responded 200 in 14900.8857 ms
+2021-02-15 13:11:02.441 +01:00 [Information] Http Response Information:
+Schema:http Host: localhost:37797 Path: /hahnprocess QueryString:  Response Body: 
+2021-02-15 13:11:02.442 +01:00 [Information] HTTP "GET" "/hahnprocess" responded 304 in 15045.1548 ms
+2021-02-15 13:11:02.651 +01:00 [Information] HTTP "GET" "/swagger/v1/swagger.json" responded 200 in 126.0188 ms
+2021-02-15 13:11:09.748 +01:00 [Information] Http Request Information:
+Schema:http Host: localhost:37797 Path: /api/v1/Applicant QueryString:  Request Body: {"name":"Adele","familyName":"Ahmann","address":"Main Street Grand Canal Way Royal Canal Way","countryOfOrigin":"UK","emailAddress":"abudotnet@gmai.com","age":26,"hired":true}
+2021-02-15 13:11:18.244 +01:00 [Warning] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2021-02-15 13:11:18.421 +01:00 [Information] Http Response Information:
+Schema:http Host: localhost:37797 Path: /api/v1/Applicant QueryString:  Response Body: {"status":"00","message":"Successful","data":{"url":"http://localhost:37797/api/v1/Applicant/1"}}
+2021-02-15 13:11:18.422 +01:00 [Information] HTTP "POST" "/api/v1/Applicant" responded 201 in 8675.8591 ms
+2021-02-15 13:11:32.235 +01:00 [Information] Http Request Information:
+Schema:http Host: localhost:37797 Path: /api/v1/Applicant QueryString:  Request Body: {"id":1,"name":"Curry","familyName":"Terry","address":"Lagos ketun road Canal off ghana way","countryOfOrigin":"United","emailAddress":"success@inhahntest.com","age":56,"hired":true}
+2021-02-15 13:11:46.251 +01:00 [Error] HTTP "PUT" "/api/v1/Applicant" responded 500 in 14017.0482 ms
+System.InvalidOperationException: The instance of entity type 'Applicant' cannot be tracked because another instance with the key value '{ID: 1}' is already being tracked. When attaching existing entities, ensure that only one entity instance with a given key value is attached.
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.ThrowIdentityConflict(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry, Boolean updateDuplicate)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.StartTracking(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState oldState, EntityState newState, Boolean acceptChanges, Boolean modifyProperties)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState entityState, Boolean acceptChanges, Boolean modifyProperties, Nullable`1 forceStateWhenUnknownKey)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.PaintAction(EntityEntryGraphNode`1 node)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraph[TState](EntityEntryGraphNode`1 node, Func`2 handleNode)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.AttachGraph(InternalEntityEntry rootEntry, EntityState targetState, EntityState storeGeneratedWithKeySetTargetState, Boolean forceStateWhenUnknownKey)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.SetEntityState(InternalEntityEntry entry, EntityState entityState)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.Update(TEntity entity)
+   at Hahn.ApplicatonProcess.December2020.Data.Repository.Repository`1.Update(TEntity entity) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Data\Repository\Repository.cs:line 60
+   at Hahn.ApplicatonProcess.December2020.Web.Controllers.V1.ApplicantController.Put(ApplicantUpdateRequest model) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Controllers\V1\ApplicantController.cs:line 126
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Hahn.ApplicatonProcess.December2020.Web.Middleware.RequestResponseLoggingMiddleware.LogResponse(HttpContext context) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Middleware\RequestResponseLoggingMiddleware.cs:line 47
+   at Hahn.ApplicatonProcess.December2020.Web.Middleware.RequestResponseLoggingMiddleware.LogResponse(HttpContext context) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Middleware\RequestResponseLoggingMiddleware.cs:line 57
+   at Hahn.ApplicatonProcess.December2020.Web.Middleware.RequestResponseLoggingMiddleware.Invoke(HttpContext context) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Middleware\RequestResponseLoggingMiddleware.cs:line 39
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2021-02-15 13:11:46.342 +01:00 [Error] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: The instance of entity type 'Applicant' cannot be tracked because another instance with the key value '{ID: 1}' is already being tracked. When attaching existing entities, ensure that only one entity instance with a given key value is attached.
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.ThrowIdentityConflict(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry, Boolean updateDuplicate)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.StartTracking(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState oldState, EntityState newState, Boolean acceptChanges, Boolean modifyProperties)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState entityState, Boolean acceptChanges, Boolean modifyProperties, Nullable`1 forceStateWhenUnknownKey)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.PaintAction(EntityEntryGraphNode`1 node)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraph[TState](EntityEntryGraphNode`1 node, Func`2 handleNode)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.AttachGraph(InternalEntityEntry rootEntry, EntityState targetState, EntityState storeGeneratedWithKeySetTargetState, Boolean forceStateWhenUnknownKey)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.SetEntityState(InternalEntityEntry entry, EntityState entityState)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.Update(TEntity entity)
+   at Hahn.ApplicatonProcess.December2020.Data.Repository.Repository`1.Update(TEntity entity) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Data\Repository\Repository.cs:line 60
+   at Hahn.ApplicatonProcess.December2020.Web.Controllers.V1.ApplicantController.Put(ApplicantUpdateRequest model) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Controllers\V1\ApplicantController.cs:line 126
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Hahn.ApplicatonProcess.December2020.Web.Middleware.RequestResponseLoggingMiddleware.LogResponse(HttpContext context) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Middleware\RequestResponseLoggingMiddleware.cs:line 47
+   at Hahn.ApplicatonProcess.December2020.Web.Middleware.RequestResponseLoggingMiddleware.LogResponse(HttpContext context) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Middleware\RequestResponseLoggingMiddleware.cs:line 57
+   at Hahn.ApplicatonProcess.December2020.Web.Middleware.RequestResponseLoggingMiddleware.Invoke(HttpContext context) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Middleware\RequestResponseLoggingMiddleware.cs:line 39
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.<Invoke>g__Awaited|6_0(ExceptionHandlerMiddleware middleware, HttpContext context, Task task)
+2021-02-15 13:11:46.615 +01:00 [Error] An exception was thrown attempting to execute the error handler.
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'The stream with Id 1523c13e-726e-43be-80ec-2fd6c94e22e2 and Tag  is disposed.'.
+   at Microsoft.IO.RecyclableMemoryStream.ThrowDisposedException()
+   at Microsoft.IO.RecyclableMemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count)
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, CancellationToken cancellationToken)
+   at Hahn.ApplicatonProcess.December2020.Web.Startup.<>c.<<Configure>b__5_3>d.MoveNext() in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Startup.cs:line 93
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.HandleException(HttpContext context, ExceptionDispatchInfo edi)
+2021-02-15 13:11:46.627 +01:00 [Error] Connection ID ""18374686494167138324"", Request ID ""80000018-0003-ff00-b63f-84710c7967bb"": An unhandled exception was thrown by the application.
+System.InvalidOperationException: The instance of entity type 'Applicant' cannot be tracked because another instance with the key value '{ID: 1}' is already being tracked. When attaching existing entities, ensure that only one entity instance with a given key value is attached.
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.ThrowIdentityConflict(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry, Boolean updateDuplicate)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.StartTracking(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState oldState, EntityState newState, Boolean acceptChanges, Boolean modifyProperties)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState entityState, Boolean acceptChanges, Boolean modifyProperties, Nullable`1 forceStateWhenUnknownKey)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.PaintAction(EntityEntryGraphNode`1 node)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraph[TState](EntityEntryGraphNode`1 node, Func`2 handleNode)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.AttachGraph(InternalEntityEntry rootEntry, EntityState targetState, EntityState storeGeneratedWithKeySetTargetState, Boolean forceStateWhenUnknownKey)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.SetEntityState(InternalEntityEntry entry, EntityState entityState)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.Update(TEntity entity)
+   at Hahn.ApplicatonProcess.December2020.Data.Repository.Repository`1.Update(TEntity entity) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Data\Repository\Repository.cs:line 60
+   at Hahn.ApplicatonProcess.December2020.Web.Controllers.V1.ApplicantController.Put(ApplicantUpdateRequest model) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Controllers\V1\ApplicantController.cs:line 126
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Hahn.ApplicatonProcess.December2020.Web.Middleware.RequestResponseLoggingMiddleware.LogResponse(HttpContext context) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Middleware\RequestResponseLoggingMiddleware.cs:line 47
+   at Hahn.ApplicatonProcess.December2020.Web.Middleware.RequestResponseLoggingMiddleware.LogResponse(HttpContext context) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Middleware\RequestResponseLoggingMiddleware.cs:line 57
+   at Hahn.ApplicatonProcess.December2020.Web.Middleware.RequestResponseLoggingMiddleware.Invoke(HttpContext context) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Middleware\RequestResponseLoggingMiddleware.cs:line 39
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.<Invoke>g__Awaited|6_0(ExceptionHandlerMiddleware middleware, HttpContext context, Task task)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.HandleException(HttpContext context, ExceptionDispatchInfo edi)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.<Invoke>g__Awaited|6_0(ExceptionHandlerMiddleware middleware, HttpContext context, Task task)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2021-02-15 13:15:28.126 +01:00 [Information] Starting web host
+2021-02-15 13:15:28.959 +01:00 [Information] Http Request Information:
+Schema:http Host: localhost:37797 Path: /hahnprocess QueryString:  Request Body: 
+2021-02-15 13:16:02.516 +01:00 [Information] Http Response Information:
+Schema:http Host: localhost:37797 Path: /hahnprocess QueryString:  Response Body: 
+2021-02-15 13:16:02.521 +01:00 [Information] HTTP "GET" "/hahnprocess" responded 200 in 33675.8233 ms
+2021-02-15 13:16:02.571 +01:00 [Information] HTTP "GET" "/swagger/index.html" responded 200 in 253.4738 ms
+2021-02-15 13:16:02.921 +01:00 [Information] HTTP "GET" "/swagger/v1/swagger.json" responded 200 in 125.8451 ms
+2021-02-15 13:16:08.590 +01:00 [Information] Http Request Information:
+Schema:http Host: localhost:37797 Path: /api/v1/Applicant QueryString:  Request Body: {"name":"Adele","familyName":"Ahmann","address":"Main Street Grand Canal Way Royal Canal Way","countryOfOrigin":"UK","emailAddress":"abudotnet@gmai.com","age":26,"hired":true}
+2021-02-15 13:16:19.571 +01:00 [Warning] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2021-02-15 13:16:19.741 +01:00 [Information] Http Response Information:
+Schema:http Host: localhost:37797 Path: /api/v1/Applicant QueryString:  Response Body: {"status":"00","message":"Successful","data":{"url":"http://localhost:37797/api/v1/Applicant/1"}}
+2021-02-15 13:16:19.742 +01:00 [Information] HTTP "POST" "/api/v1/Applicant" responded 201 in 11156.1948 ms
+2021-02-15 13:16:29.833 +01:00 [Information] Http Request Information:
+Schema:http Host: localhost:37797 Path: /api/v1/Applicant QueryString:  Request Body: {"id":1,"name":"Curry","familyName":"Terry","address":"Lagos ketun road Canal off ghana way","countryOfOrigin":"United","emailAddress":"success@inhahntest.com","age":56,"hired":true}
+2021-02-15 13:16:48.765 +01:00 [Error] HTTP "PUT" "/api/v1/Applicant" responded 500 in 18932.1530 ms
+AutoMapper.AutoMapperMappingException: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+Object -> Applicant
+System.Object -> Hahn.ApplicatonProcess.December2020.Domain.Entities.Applicant
+   at lambda_method108(Closure , Object , Applicant , ResolutionContext )
+   at Hahn.ApplicatonProcess.December2020.Web.Controllers.V1.ApplicantController.Put(ApplicantUpdateRequest model) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Controllers\V1\ApplicantController.cs:line 126
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Hahn.ApplicatonProcess.December2020.Web.Middleware.RequestResponseLoggingMiddleware.LogResponse(HttpContext context) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Middleware\RequestResponseLoggingMiddleware.cs:line 47
+   at Hahn.ApplicatonProcess.December2020.Web.Middleware.RequestResponseLoggingMiddleware.LogResponse(HttpContext context) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Middleware\RequestResponseLoggingMiddleware.cs:line 57
+   at Hahn.ApplicatonProcess.December2020.Web.Middleware.RequestResponseLoggingMiddleware.Invoke(HttpContext context) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Middleware\RequestResponseLoggingMiddleware.cs:line 39
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2021-02-15 13:16:48.909 +01:00 [Error] An unhandled exception has occurred while executing the request.
+AutoMapper.AutoMapperMappingException: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+Object -> Applicant
+System.Object -> Hahn.ApplicatonProcess.December2020.Domain.Entities.Applicant
+   at lambda_method108(Closure , Object , Applicant , ResolutionContext )
+   at Hahn.ApplicatonProcess.December2020.Web.Controllers.V1.ApplicantController.Put(ApplicantUpdateRequest model) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Controllers\V1\ApplicantController.cs:line 126
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Hahn.ApplicatonProcess.December2020.Web.Middleware.RequestResponseLoggingMiddleware.LogResponse(HttpContext context) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Middleware\RequestResponseLoggingMiddleware.cs:line 47
+   at Hahn.ApplicatonProcess.December2020.Web.Middleware.RequestResponseLoggingMiddleware.LogResponse(HttpContext context) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Middleware\RequestResponseLoggingMiddleware.cs:line 57
+   at Hahn.ApplicatonProcess.December2020.Web.Middleware.RequestResponseLoggingMiddleware.Invoke(HttpContext context) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Middleware\RequestResponseLoggingMiddleware.cs:line 39
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.<Invoke>g__Awaited|6_0(ExceptionHandlerMiddleware middleware, HttpContext context, Task task)
+2021-02-15 13:16:49.172 +01:00 [Error] An exception was thrown attempting to execute the error handler.
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'The stream with Id 1468f81e-0e2d-48ac-9f74-98d8be8a221b and Tag  is disposed.'.
+   at Microsoft.IO.RecyclableMemoryStream.ThrowDisposedException()
+   at Microsoft.IO.RecyclableMemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count)
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, CancellationToken cancellationToken)
+   at Hahn.ApplicatonProcess.December2020.Web.Startup.<>c.<<Configure>b__5_3>d.MoveNext() in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Startup.cs:line 93
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.HandleException(HttpContext context, ExceptionDispatchInfo edi)
+2021-02-15 13:16:49.182 +01:00 [Error] Connection ID ""18230571318976184356"", Request ID ""80000028-0006-fd00-b63f-84710c7967bb"": An unhandled exception was thrown by the application.
+AutoMapper.AutoMapperMappingException: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+Object -> Applicant
+System.Object -> Hahn.ApplicatonProcess.December2020.Domain.Entities.Applicant
+   at lambda_method108(Closure , Object , Applicant , ResolutionContext )
+   at Hahn.ApplicatonProcess.December2020.Web.Controllers.V1.ApplicantController.Put(ApplicantUpdateRequest model) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Controllers\V1\ApplicantController.cs:line 126
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Hahn.ApplicatonProcess.December2020.Web.Middleware.RequestResponseLoggingMiddleware.LogResponse(HttpContext context) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Middleware\RequestResponseLoggingMiddleware.cs:line 47
+   at Hahn.ApplicatonProcess.December2020.Web.Middleware.RequestResponseLoggingMiddleware.LogResponse(HttpContext context) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Middleware\RequestResponseLoggingMiddleware.cs:line 57
+   at Hahn.ApplicatonProcess.December2020.Web.Middleware.RequestResponseLoggingMiddleware.Invoke(HttpContext context) in C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\Middleware\RequestResponseLoggingMiddleware.cs:line 39
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.<Invoke>g__Awaited|6_0(ExceptionHandlerMiddleware middleware, HttpContext context, Task task)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.HandleException(HttpContext context, ExceptionDispatchInfo edi)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.<Invoke>g__Awaited|6_0(ExceptionHandlerMiddleware middleware, HttpContext context, Task task)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2021-02-15 13:20:26.115 +01:00 [Information] Starting web host
+2021-02-15 13:20:26.751 +01:00 [Information] Http Request Information:
+Schema:http Host: localhost:37797 Path: /hahnprocess QueryString:  Request Body: 
+2021-02-15 13:20:32.875 +01:00 [Information] Http Response Information:
+Schema:http Host: localhost:37797 Path: /hahnprocess QueryString:  Response Body: <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title> Testing</title>
+</head>
+<body>
+    <p>This is an example paragraph. Anything in the <strong>body</strong> tag will appear on the page, just like this <strong>p</strong> tag and its contents.</p>
+
+</body>
+</html>
+2021-02-15 13:20:32.887 +01:00 [Information] HTTP "GET" "/hahnprocess" responded 200 in 6224.8911 ms
+2021-02-15 13:20:37.513 +01:00 [Information] HTTP "GET" "/swagger/index.html" responded 200 in 100.1867 ms
+2021-02-15 13:20:38.190 +01:00 [Information] HTTP "GET" "/swagger/v1/swagger.json" responded 200 in 140.0606 ms
+2021-02-15 13:20:48.353 +01:00 [Information] Http Request Information:
+Schema:http Host: localhost:37797 Path: /api/v1/Applicant QueryString:  Request Body: {"name":"Adele","familyName":"Ahmann","address":"Main Street Grand Canal Way Royal Canal Way","countryOfOrigin":"UK","emailAddress":"abudotnet@gmai.com","age":26,"hired":true}
+2021-02-15 13:20:52.788 +01:00 [Warning] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2021-02-15 13:20:53.039 +01:00 [Information] Http Response Information:
+Schema:http Host: localhost:37797 Path: /api/v1/Applicant QueryString:  Response Body: {"status":"00","message":"Successful","data":{"url":"http://localhost:37797/api/v1/Applicant/1"}}
+2021-02-15 13:20:53.039 +01:00 [Information] HTTP "POST" "/api/v1/Applicant" responded 201 in 4688.1059 ms
+2021-02-15 13:21:04.281 +01:00 [Information] Http Request Information:
+Schema:http Host: localhost:37797 Path: /api/v1/Applicant QueryString:  Request Body: {"id":1,"name":"Curry","familyName":"Terry","address":"Lagos ketun road Canal off ghana way","countryOfOrigin":"United","emailAddress":"success@inhahntest.com","age":56,"hired":true}
+2021-02-15 13:21:20.732 +01:00 [Information] Http Response Information:
+Schema:http Host: localhost:37797 Path: /api/v1/Applicant QueryString:  Response Body: {"status":"00","message":"Successful","data":"Updated"}
+2021-02-15 13:21:20.733 +01:00 [Information] HTTP "PUT" "/api/v1/Applicant" responded 200 in 16452.4295 ms

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Hahn.ApplicatonProcess.December2020.Domain.Services
+namespace Hahn.ApplicatonProcess.December2020.Data.Services
 {
     public interface IUnitOfWork : IDisposable
     {

@@ -13,16 +13,7 @@ namespace Hahn.ApplicatonProcess.December2020.Domain.Services.ApplicantService
         public ApplicantService()
         {
         }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="model"></param>
-        /// <returns></returns>
-        public async Task<string> GetApplicationUrl(Applicant model)
-        {
 
-            return string.Empty;
-        }
-     
+      
     }
 }

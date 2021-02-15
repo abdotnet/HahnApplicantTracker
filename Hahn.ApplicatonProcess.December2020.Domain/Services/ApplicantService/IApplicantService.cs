@@ -10,7 +10,6 @@ namespace Hahn.ApplicatonProcess.December2020.Domain.Services.ApplicantService
 {
     public interface IApplicantService
     {
-        Task<string> GetApplicationUrl(Applicant model);
-    
+
     }
 }

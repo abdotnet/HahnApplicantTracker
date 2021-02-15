@@ -128,7 +128,6 @@ namespace Hahn.ApplicatonProcess.December2020.Web.Middlware
             {
                 responseModel.Status = ApplicationStatusCode.GenericError;
                 responseModel.Message = _ex.Message != null ? _ex.Message : "Please contact the administrator";
-                context.Response.StatusCode = (int)HttpStatusCode.BadRequest;
 
                 return JsonConvert.SerializeObject(responseModel);
             }

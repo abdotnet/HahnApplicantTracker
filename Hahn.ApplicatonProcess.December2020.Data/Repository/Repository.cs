@@ -57,7 +57,7 @@ namespace Hahn.ApplicatonProcess.December2020.Data.Repository
 
         public void Update(TEntity entity)
         {
-            _dataContext.Set<TEntity>().Update(entity);
+            _dataContext.Set<TEntity>().Attach(entity);
         }
     }
 }

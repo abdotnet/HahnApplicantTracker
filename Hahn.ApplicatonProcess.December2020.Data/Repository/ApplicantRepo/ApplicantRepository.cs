@@ -1,4 +1,5 @@
 ﻿using Hahn.ApplicatonProcess.December2020.Domain.Entities;
+using Hahn.ApplicatonProcess.December2020.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -23,6 +24,14 @@ namespace Hahn.ApplicatonProcess.December2020.Data.Repository.ApplicantRepo
 
         }
 
-       
+        public async Task<ApiResponse> GetPagedApplicants(SearchModel model)
+        {
+            ApiResponse response = new ApiResponse();
+
+            await Task.Run(() => { });
+
+            return response;
+
+        }
     }
 }

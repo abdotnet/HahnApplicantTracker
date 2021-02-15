@@ -1,31 +1,24 @@
 using AutoMapper;
 using FluentValidation.AspNetCore;
 using Hahn.ApplicatonProcess.December2020.Data;
+using Hahn.ApplicatonProcess.December2020.Data.Services;
 using Hahn.ApplicatonProcess.December2020.Domain.Services.ApplicantService;
 using Hahn.ApplicatonProcess.December2020.Domain.Validation;
 using Hahn.ApplicatonProcess.December2020.Web.Filters;
+using Hahn.ApplicatonProcess.December2020.Web.Helpers.Swagger;
 using Hahn.ApplicatonProcess.December2020.Web.Middleware;
 using Hahn.ApplicatonProcess.December2020.Web.Middlware;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using Serilog;
-using Microsoft.EntityFrameworkCore;
-using Hahn.ApplicatonProcess.December2020.Domain.Services;
-using Hahn.ApplicatonProcess.December2020.Domain.Infrastructure;
-using Swashbuckle.Examples;
-using Swashbuckle.AspNetCore.SwaggerGen;
 using Swashbuckle.AspNetCore.Filters;
-using System.Reflection;
-using Hahn.ApplicatonProcess.December2020.Domain.Entities;
-using FluentValidation;
-using Hahn.ApplicatonProcess.December2020.Domain.Contracts.V1.Requests;
-using Hahn.ApplicatonProcess.December2020.Web.Helpers.Swagger;
 
 namespace Hahn.ApplicatonProcess.December2020.Web
 {
@@ -60,12 +53,15 @@ namespace Hahn.ApplicatonProcess.December2020.Web
             // Loggin and centralized error handling in .net 5
             services.AddAutoMapper(typeof(Startup));
 
-            services.AddDbContext<DataContext>(opt => opt.UseInMemoryDatabase(databaseName: "ApplicantDb"));
+            services.AddDbContext<DataContext>(opt =>
+            {
+                opt.UseInMemoryDatabase(databaseName: "ApplicantDb");
+                opt.EnableSensitiveDataLogging();
+                });
 
             services.AddTransient<IApplicantService, ApplicantService>();
             services.AddTransient<IUnitOfWork, UnitOfWork>();
 
-            //services.AddTransient<IValidator<ApplicantRequest>, ApplicantRequestValidator>();
 
             services.AddSwaggerGen(c =>
             {
@@ -80,8 +76,6 @@ namespace Hahn.ApplicatonProcess.December2020.Web
             });
 
             services.AddSwaggerExamplesFromAssemblyOf<ApplicantRequestExample>();
-            // services.AddSwaggerExamples();
-            //(Assembly.GetEntryAssembly());
         }
 
         /// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -100,12 +94,9 @@ namespace Hahn.ApplicatonProcess.December2020.Web
                     });
             });
 
-
-
             app.UseSerilogRequestLogging();
 
             app.UseSwagger();
-
 
             app.UseSwaggerUI(c =>
             {
