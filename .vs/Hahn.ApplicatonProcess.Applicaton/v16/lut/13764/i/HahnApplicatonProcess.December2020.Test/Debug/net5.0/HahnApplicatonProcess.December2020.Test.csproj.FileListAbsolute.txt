@@ -40,3 +40,4 @@ C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\.vs\Hahn.Applicato
 C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\.vs\Hahn.ApplicatonProcess.Applicaton\v16\lut\0\i\HahnApplicatonProcess.December2020.Test\Debug\net5.0\HahnApplicatonProcess.December2020.Test.dll
 C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\.vs\Hahn.ApplicatonProcess.Applicaton\v16\lut\0\i\HahnApplicatonProcess.December2020.Test\Debug\net5.0\ref\HahnApplicatonProcess.December2020.Test.dll
 C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\.vs\Hahn.ApplicatonProcess.Applicaton\v16\lut\0\i\HahnApplicatonProcess.December2020.Test\Debug\net5.0\HahnApplicatonProcess.December2020.Test.genruntimeconfig.cache
+C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\.vs\Hahn.ApplicatonProcess.Applicaton\v16\lut\0\i\HahnApplicatonProcess.December2020.Test\Debug\net5.0\HahnApplicatonProcess.December2020.Test.csprojAssemblyReference.cache

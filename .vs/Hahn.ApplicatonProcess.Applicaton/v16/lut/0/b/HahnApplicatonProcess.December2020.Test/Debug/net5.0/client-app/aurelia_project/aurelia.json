@@ -23,8 +23,18 @@
   "platform": {
     "hmr": false,
     "open": false,
-    "port": 8080,
+    "port": 8091,
     "host": "localhost",
     "output": "dist"
-  }
+  },
+  "jquery":{
+  "name": "bootstrap",
+  "path": "../node_modules/bootstrap/dist",
+  "main": "js/bootstrap.min",
+  "deps": ["jquery"],
+  "exports": "$",
+  "resources": [
+    "styles/main.css"
+  ]
+}
 }

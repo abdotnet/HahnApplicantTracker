@@ -10,6 +10,14 @@
   "dependencies": {
     "aurelia-animator-css": "^1.0.4",
     "aurelia-bootstrapper": "^2.3.3",
+    "aurelia-dialog": "^2.0.0",
+    "aurelia-i18n": "^3.1.4",
+    "aurelia-validatejs": "^0.7.0",
+    "aurelia-validation": "^2.0.0-rc2",
+    "bootstrap": "^4.6.0",
+    "i18next": "^19.8.7",
+    "i18next-xhr-backend": "npm:i18next-xhr-backend@^3.2.2",
+    "jquery": "^3.5.1",
     "nprogress": "^0.2.0"
   },
   "devDependencies": {

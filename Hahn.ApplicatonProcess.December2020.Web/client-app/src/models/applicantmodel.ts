@@ -1,4 +1,4 @@
-export interface ApplicantModel
+export class ApplicantModel
 {
   ID : number;
   Name : string;

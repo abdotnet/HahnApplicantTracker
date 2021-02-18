@@ -1,3 +1,47 @@
 <template>
-<p> This is applicant page</p>
+<form submit.delegate="submit()">
+  <fieldset>
+    <legend>Create Applicant</legend>
+ 
+    <div class="form-group">
+      <label for="exampleInputEmail1">Family Name</label>
+      <input type="text" class="form-control" id="familyname" value.bind="appForm.FamilyName & validate" placeholder="Enter family name">
+      <span class="error"></span>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Name</label>
+      <input type="text" class="form-control" id="name"  value.bind="appForm.Name & validate" placeholder="Enter Name">
+    </div>
+     <div class="form-group">
+      <label for="exampleInputPassword1">Age</label>
+      <input type="number" class="form-control" id="age"  value.bind="appForm.Age & validate" placeholder="Enter Age">
+    </div>
+    <div class="form-group">
+      <label for="exampleSelect1">Country Of Origin</label>
+      <input type="text" class="form-control" id="countryofOrigin" value.bind="appForm.CountryOfOrigin & validate" placeholder="Enter Country of origin">
+    </div>
+    <div class="form-group">
+      <label for="exampleSelect1">Email Address</label>
+      <input type="email" class="form-control" id="emailaddress" value.bind="appForm.EmailAddress & validate" placeholder="Enter Age">
+    </div>
+    <div class="form-group">
+      <label for="exampleTextarea">Address</label>
+      <textarea class="form-control" id="Address" value.bind="appForm.Address & validate" rows="3"></textarea>
+    </div>
+   
+    <fieldset class="form-group">
+      <legend>Hired</legend>
+      <div class="form-check">
+        <label class="form-check-label">
+          <input type="checkbox" class="form-check-input" name="checkbox" id="optcheckbox" value="option1" checked.bind = "appForm.Hired" >
+          Hired ?
+        </label>
+      </div>
+     
+    </fieldset>
+  
+    <button type="submit" class="btn btn-primary" click.trigger = "updateContent()">Send</button> &nbsp;
+      <button type="submit" class="btn btn-warning"  click.trigger = "reset()">Reset</button>
+  </fieldset>
+</form>
 </template>

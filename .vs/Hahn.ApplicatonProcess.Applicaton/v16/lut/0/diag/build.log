@@ -1,0 +1,31 @@
+[09:11:45.185 Verbose] - BuildManager - Some of the paths are absolute. This may prevent Live Unit Testing from building to the correct location.
+[09:11:45.192 Verbose] - BuildManager - Property BaseOutputPath evaluated to 'bin\' via:
+BaseOutputPath: '$([MSBuild]::EnsureTrailingSlash($([MSBuild]::ValueOrDefault('$(BaseOutputPath)', 'bin'))))' @ C:\Program Files (x86)\Microsoft Visual Studio\2019\Preview\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets:154
+  BaseOutputPath: 'bin\' @ C:\Program Files\dotnet\sdk\5.0.200-preview.21079.7\Sdks\Microsoft.NET.Sdk\targets\Microsoft.NET.DefaultOutputPaths.targets:31
+[09:11:45.193 Verbose] - BuildManager - Property BaseIntermediateOutputPath evaluated to 'C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web\obj\' via:
+BaseIntermediateOutputPath: '$(MSBuildProjectDirectory)\$(BaseIntermediateOutputPath)' @ C:\Program Files\dotnet\sdk\5.0.200-preview.21079.7\Sdks\Microsoft.NET.Sdk.Publish\targets\Microsoft.NET.Sdk.Publish.targets:80
+  MSBuildProjectDirectory: 'C:\Users\Abuba\source\repos\Hahn.ApplicatonProcess.Applicaton\Hahn.ApplicatonProcess.December2020.Web'
+  BaseIntermediateOutputPath: '$([MSBuild]::EnsureTrailingSlash($([MSBuild]::ValueOrDefault('$(BaseIntermediateOutputPath)', 'obj'))))' @ C:\Program Files (x86)\Microsoft Visual Studio\2019\Preview\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets:159
+    BaseIntermediateOutputPath: '$([MSBuild]::EnsureTrailingSlash($([MSBuild]::ValueOrDefault('$(BaseIntermediateOutputPath)', 'obj'))))' @ C:\Program Files (x86)\Microsoft Visual Studio\2019\Preview\MSBuild\Current\Microsoft.Common.props:46
+      BaseIntermediateOutputPath: '[Undefined]'
+[09:11:45.194 Verbose] - BuildManager - Property IntermediateOutputPath evaluated to 'obj\Debug\net5.0\' via:
+IntermediateOutputPath: '$([MSBuild]::EnsureTrailingSlash('$(IntermediateOutputPath)'))' @ C:\Program Files (x86)\Microsoft Visual Studio\2019\Preview\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets:162
+  IntermediateOutputPath: '$(IntermediateOutputPath)$(TargetFramework.ToLowerInvariant())\' @ C:\Program Files\dotnet\sdk\5.0.200-preview.21079.7\Sdks\Microsoft.NET.Sdk\targets\Microsoft.NET.TargetFrameworkInference.targets:241
+    IntermediateOutputPath: '$(BaseIntermediateOutputPath)$(Configuration)\' @ C:\Program Files\dotnet\sdk\5.0.200-preview.21079.7\Sdks\Microsoft.NET.Sdk\targets\Microsoft.NET.DefaultOutputPaths.targets:39
+      BaseIntermediateOutputPath: '$([MSBuild]::EnsureTrailingSlash($([MSBuild]::ValueOrDefault('$(BaseIntermediateOutputPath)', 'obj'))))' @ C:\Program Files (x86)\Microsoft Visual Studio\2019\Preview\MSBuild\Current\Microsoft.Common.props:46
+        BaseIntermediateOutputPath: '[Undefined]'
+      Configuration: 'Debug'
+[09:11:45.194 Verbose] - BuildManager - Property OutputPath evaluated to 'bin\Debug\net5.0\' via:
+OutputPath: '$([MSBuild]::EnsureTrailingSlash('$(OutputPath)'))' @ C:\Program Files (x86)\Microsoft Visual Studio\2019\Preview\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets:157
+  OutputPath: '$(OutputPath)$(TargetFramework.ToLowerInvariant())\' @ C:\Program Files\dotnet\sdk\5.0.200-preview.21079.7\Sdks\Microsoft.NET.Sdk\targets\Microsoft.NET.TargetFrameworkInference.targets:242
+    OutputPath: '$(BaseOutputPath)$(Configuration)\' @ C:\Program Files\dotnet\sdk\5.0.200-preview.21079.7\Sdks\Microsoft.NET.Sdk\targets\Microsoft.NET.DefaultOutputPaths.targets:33
+      BaseOutputPath: 'bin\' @ C:\Program Files\dotnet\sdk\5.0.200-preview.21079.7\Sdks\Microsoft.NET.Sdk\targets\Microsoft.NET.DefaultOutputPaths.targets:31
+      Configuration: 'Debug'
+[09:11:45.194 Verbose] - BuildManager - Property OutDir evaluated to 'bin\Debug\net5.0\' via:
+OutDir: '$([MSBuild]::EnsureTrailingSlash($([MSBuild]::ValueOrDefault('$(OutDir)', '$(OutputPath)'))))' @ C:\Program Files (x86)\Microsoft Visual Studio\2019\Preview\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets:230
+  OutDir: '[Undefined]'
+  OutputPath: '$([MSBuild]::EnsureTrailingSlash('$(OutputPath)'))' @ C:\Program Files (x86)\Microsoft Visual Studio\2019\Preview\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets:157
+    OutputPath: '$(OutputPath)$(TargetFramework.ToLowerInvariant())\' @ C:\Program Files\dotnet\sdk\5.0.200-preview.21079.7\Sdks\Microsoft.NET.Sdk\targets\Microsoft.NET.TargetFrameworkInference.targets:242
+      OutputPath: '$(BaseOutputPath)$(Configuration)\' @ C:\Program Files\dotnet\sdk\5.0.200-preview.21079.7\Sdks\Microsoft.NET.Sdk\targets\Microsoft.NET.DefaultOutputPaths.targets:33
+        BaseOutputPath: 'bin\' @ C:\Program Files\dotnet\sdk\5.0.200-preview.21079.7\Sdks\Microsoft.NET.Sdk\targets\Microsoft.NET.DefaultOutputPaths.targets:31
+        Configuration: 'Debug'

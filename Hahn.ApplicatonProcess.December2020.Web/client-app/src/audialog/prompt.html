@@ -1,0 +1,34 @@
+<template>
+<style>
+div.div{
+background-color: #fefefe;
+   position: absolute;
+      max-height: 100px;
+      max-width: 100px;
+      z-index: -1;
+      border:1px solid;
+        left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+   background: rgb(255,255,255);
+  transform: scale(0, 0);
+
+}
+</style>
+
+ <ai-dialog >
+      <ai-dialog-body>
+     
+         <h2>${message}</h2>
+        
+      </ai-dialog-body>
+
+      <ai-dialog-footer>
+         <button click.trigger = "controller.cancel()" class="btn btn-primary" >Cancel</button>
+         <button click.trigger = "controller.ok(message)" class="btn btn-secondary" >Ok</button>
+      </ai-dialog-footer>	
+   </ai-dialog>	
+</div>
+  
+</template>

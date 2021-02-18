@@ -1,8 +1,7 @@
-export class ApplicantView
-{
-  public id :number;
-  activate(params)
-  {
-    this.id = params.id;
+export class Applicantview {
+  message: string;
+
+  constructor() {
+    this.message = 'Hello world';
   }
 }
