@@ -1,0 +1,8 @@
+2021-02-18 14:33:22.216 +01:00 [Information] Starting web host
+2021-02-18 14:33:23.234 +01:00 [Information] Http Request Information:
+Schema:http Host: localhost:37797 Path: /hahnprocess QueryString:  Request Body: 
+2021-02-18 14:33:47.556 +01:00 [Information] HTTP "GET" "/swagger/index.html" responded 200 in 24472.3345 ms
+2021-02-18 14:33:47.684 +01:00 [Information] Http Response Information:
+Schema:http Host: localhost:37797 Path: /hahnprocess QueryString:  Response Body: 
+2021-02-18 14:33:47.685 +01:00 [Information] HTTP "GET" "/hahnprocess" responded 200 in 24603.2870 ms
+2021-02-18 14:33:48.002 +01:00 [Information] HTTP "GET" "/swagger/v1/swagger.json" responded 200 in 154.0074 ms
